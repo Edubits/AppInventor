@@ -1,0 +1,99 @@
+\documentclass{BYUTextbook}
+
+\usepackage[dutch]{babel}
+
+% The \lipsum command just loads dummy text.
+\usepackage{lipsum}
+
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{needspace}
+\sloppy
+%%% ---------------  onze definities ----------------
+
+% app inventor kleuren
+\definecolor{aiblue}{rgb}{0.65,.78,0.9}
+\definecolor{aigreen}{rgb}{0.81,.87,0.6}
+
+% \ai voor 'App Inventor' (ik word zo moe van steeds die hoofdletters in te moeten typen :-) )
+\newcommand{\ai}[0]{\emph{App Inventor} \nolinebreak}
+
+% gebruik \block voor een block in de AppInventor-block editor   ( voor nu: italic bold )
+\newcommand{\block}[1]{\colorbox{aiblue}{ \texttt{#1} }}
+
+\newcommand{\menuitem}[1]{\colorbox{aigreen}{ #1 }} 
+
+\newcommand{\bestand}[1]{\url{#1}}  % eigenlijk is het gebruik van url hier niet helemaal correct omdat de link nergens naartoe wijst, maar het ziet er wel OK uit. 
+
+% Run op telefoon
+\newcommand{\runOpTelefoon}[2][0pt]{
+    \marginpar{\captionsetup{type=table} \vspace{#1}
+    \begin{minipage}[t][#2]{1.23in}
+    \smallskip
+    \footnotesize 
+    \checkoddpage
+    \ifoddpage
+	   \RaggedRight 
+    \else
+	   \RaggedLeft
+    \fi
+    \includegraphics[width=.615in]{screenshots/run_op_telefoon}
+	    
+    \end{minipage}
+    }
+}
+
+%%% ---------------  begin van het document ----------------
+\begin{document}
+
+\frontmatter
+
+\thispagestyle{empty}
+\begin{adjustwidth}{}{-1.5in}
+
+ \centering
+ \vspace{.8in}
+ \Huge Android Apps met App Inventor
+ \normalsize
+ \vspace{.8in}
+
+Coen Crombach
+
+Robin Eggenkamp
+
+Fran\c{c}ois Vonk
+
+ \vspace{0.5in}
+
+% \graphicspath{{screenshots/building_blocks/}{screenshots/AppInventorLogo/}}
+\includegraphics[width=\textwidth]{screenshots/building_blocks}
+
+\vspace{0.25in}
+
+\includegraphics[width=0.5\textwidth]{screenshots/AppInventorLogo}
+
+ \vspace{.8in}
+
+\today
+
+
+\end{adjustwidth}
+
+\cleardoublepage
+
+\include{voorwoord}
+
+\tableofcontents
+
+\mainmatter
+
+\include{installatie}
+\include{ontwikkelomgeving}
+\include{mollen_meppen}
+\include{schrandere_scholier}
+\include{meteoor}
+
+\cleardoublepage
+
+\end{document}

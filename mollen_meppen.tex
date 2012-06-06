@@ -1,0 +1,135 @@
+\chapter{Mollen Meppen}
+
+We hebben zojuist ons eerste project geladen en het ontwerp ervan kort gezien. Voor we uitgebreid naar het \'e\'en en ander kijken gaan we de applicatie eerst een keer uitvoeren.
+
+Dit doen we door vanaf de \menuitem{Design} pagina de \menuitem{Blocks Editor} te openen via 
+de \menuitem{Open the Blocks Editor} link, zie figuur \ref{screenshots/mollenmeppen_open_blocks}. Nu moet je even goed opletten omdat het kan zijn dat je browser toestemming vraagt om een aantal dingen te mogen doen.
+
+\inlinefig{screenshots/mollenmeppen_open_blocks}{Locatie van de `Open the Blocks Editor' link}
+
+Als eerste wordt het \bestand{AppInventorForAndroidCodeblocks.jnlp} bestand geopend. Als je browser je hierover een vraag stelt moet je op \menuitem{openen} klikken. Vervolgens wordt het bestand geladen door \emph{Java} en kan het zijn dat je toestemming moet geven om het bestand uit te voeren. Vervolgens wordt de \menuitem{Blocks Editor} geopend en zie je wat er in figuur \ref{screenshots/MollenMeppen_BlocksEditor} is afgebeeld.
+
+\inlinefig{screenshots/MollenMeppen_BlocksEditor}{Blocks Editor van MollenMeppen}
+
+\runOpTelefoon{} 
+
+Om de applicatie uit te voeren moeten we eerst een emulator opstarten. Dit doen we via de \menuitem{New emulator} link zoals aangegeven in figuur \ref{screenshots/MollenMeppen_BlocksEditor_New_emulator}.\marginfig{screenshots/MollenMeppen_emulator_unlock}{De emulator} Als de emulator is opgestart ziet deze er uit zoals afgebeeld in figuur \ref{screenshots/MollenMeppen_emulator_unlock}. De emulator staat nu nog `op slot', we kunnen het slot verwijderen door met de muis op het \menuitem{slotje} te klikken, de muisknop ingedrukt te houden, de muis in de richting van de pijl te bewegen zoals aangegeven in figuur \ref{screenshots/MollenMeppen_emulator_unlock} en de muisknop weer los te laten.
+
+\inlinefig{screenshots/MollenMeppen_BlocksEditor_New_emulator}{Locatie van de \menuitem{New emulator} link}
+
+Als we de emulator `van slot' hebben gehaald kunnen we verbinding maken met de emulator. Dit doe we door op de \menuitem{Connect to Device} link te klikken en vervolgens \menuitem{emulator-5554} te kiezen, zie figuur \ref{screenshots/MollenMeppen_BlocksEditor_Connect_to_Device}.
+
+\inlinefig{screenshots/MollenMeppen_BlocksEditor_Connect_to_Device}{Locatie van de \menuitem{Connect to Device} link}
+
+\marginfig{screenshots/MollenMeppen}{De MollenMeppen applicatie}Nadat we op de link geklikt hebben wordt onze applicatie in de emulator geladen. Als het laden klaar is zien we wat er is afgebeeld in figuur \ref{screenshots/MollenMeppen} en kunnen we de applicatie gebruiken. Klik op de mol en kijk wat er gebeurt.
+ 
+Wat er gebeurt is nog niet zo heel spannend en uitdagend maar daar kun je wat aan doen! Hieronder volgt een serie opdrachten waardoor je `Mollen Meppen' tot een echt spel kunt maken. We raden je aan om na iedere opgave waarin je de code aanpast deze uit te testen op de emulator. Veel succes!
+
+\section{Willekeurig opduiken van de mol}
+De mol beweegt zich erg voorspelbaar op dit moment en dat maakt het spel saai. In de \menuitem{Blocks Editor} kunnen we zien waarom de mol zich zo gedraagt.
+
+\begin{opgave}
+    \opgVraag
+	Bekijk de code van de procedure `verplaatsMol' en beredeneer waarom de mol zich verplaatst 
+	zoals je ziet wanneer je erop klikt. 
+\end{opgave}
+
+Wat we hier feitelijk willen is dat de $x$ en $y$ positie van de mol (de \emph{ImageSprite}) willekeurig bepaald worden. Hiervoor kunnen we een \emph{block} vinden onder de \menuitem{Built-In} tab bij \menuitem{Math}, zie figuur \ref{screenshots/MollenMeppen_BlocksEditor_Built-In_Math}. \emph{Blocks} uit de \menuitem{Blocks Editor} kunnen we simpelweg in het \menuitem{blokkenveld} slepen en daar neerzetten of in elkaar klikken. Als je per ongeluk een verkeerd \emph{block} hebt gebruikt kun je het verwijderen door het naar de prullenbak rechts onder in het scherm te slepen en het block los te laten.
+
+\inlinefig{screenshots/MollenMeppen_BlocksEditor_Built-In_Math}{Locatie van de `Built-In' Math link}
+
+\needspace{5\baselineskip}
+\begin{opgave}
+    \opgVraag
+    	\reminder{\lefthand}{Hint: Wat is het Engelse woord voor willekeurig?}
+	Verander de code van de procedure \emph{verplaatsMol} zodat de mol zich willekeurig verplaatst binnen het veld.
+\end{opgave}
+
+\section{Geluid toevoegen als je de mol raakt}
+Als de mol geraakt wordt is het leuk als we dat ook horen. Gelukkig kunnen we dit programmeren in \ai. 
+Zoek een leuk geluidje op via internet en maak de volgende opdracht.
+ 
+\begin{opgave}
+    \opgVraag
+	Voeg een geluid toe aan het spel en speel dat geluid af op het moment dat de mol geraakt wordt. 
+\end{opgave}
+
+\section{De mol op een timer laten bewegen}
+Op het moment is het zo dat de mol zich alleen verplaatst als je hem een mep verkoopt. Het is leuker als de mol af en toe uit zichzelf ergens anders opduikt. Om dit voor elkaar te krijgen gebruiken we een zogenaamde \menuitem{timer}. 
+Deze kunnen we vinden via de \menuitem{Clock} component in het \menuitem{Basic} palette, zie figuur \ref{screenshots/MollenMeppen_design_clock}. 
+Een component kun je in het \menuitem{Viewer} gedeelte van je ontwikkelomgeving slepen. 
+Je ziet dat de component ook toegevoegd wordt in het \menuitem{Components} gedeelte van je ontwikkelomgeving. 
+Dit is de plaats waar je componenten een andere naam kunt geven en verwijderen.
+ 
+\inlinefig{screenshots/MollenMeppen_design_clock}{Locatie van de \menuitem{Clock} control in het \menuitem{Basic} palette}
+ 
+\begin{opgave}
+    \opgVraag
+	Voeg een \menuitem{Clock} control aan het spel toe en kijk goed waar deze neergezet wordt. Beredeneer wat er gebeurt en waarom. 
+\end{opgave}
+
+Nadat we de \menuitem{Clock} control hebben toegevoegd kunnen we de timer programmeren. Hiervoor moeten we in de \menuitem{Blocks Editor} zijn. Je weet intussen hoe je die moet openen of je hebt hem nog open staan. 
+Onder de \menuitem{My Blocks} tab staat nu een \menuitem{Clock 1} link omdat we 
+de \menuitem{Clock} control hebben toegevoegd, zie figuur \ref{screenshots/MollenMeppen_BlocksEditor_Clock1}. Klik op de link en je ziet bovenaan 
+een \block{Clock1.Timer} block.
+
+\inlinefig{screenshots/MollenMeppen_BlocksEditor_Clock1}{Locatie van de \menuitem{My Blocks} | \menuitem{Clock1} link}
+ 
+\begin{opgave}
+    \opgVraag
+    	\reminder[-.4in]{\lefthand}{Hint: Kijk eens bij de \menuitem{My Blocks} | \menuitem{My Definitions} link.}
+	Voeg het timer blok toe en zorg dat de mol zich om de zoveel tijd uit zichzelf verplaatst.
+\end{opgave}
+
+\section{Tellen van het aantal maal dat je mis slaat}
+Naast het bijhouden hoe vaak een speler de mol raakt willen we ook graag bijhouden hoe vaak de speler misslaat. In je \menuitem{Components} staat een \block{HorizontalArrangement1} die ervoor zorgt dat je componenten horizontaal 
+in je scherm kunt rangschikken. 
+De componenten erin (\block{Label1} en \block{Label2}) komen overeen met `aantal geraakt' en `0' in je \menuitem{Viewer}.
+
+\begin{opgave}
+    \opgVraag
+	Breid de bestaande \block{HorizontalArrangement1} uit met de tekst `aantal gemist' en de bijbehorende teller. Breid bovendien je programma in de \menuitem{Blocks Editor} uit zodat het aantal keer dat de speler misslaat wordt bijgehouden. 
+\end{opgave}
+
+\section{Score toevoegen}
+Het bijhouden van het aantal keer raak en misslaan is leuk maar een score is nog leuker. 
+Voor iedere keer dat een speler de mol raakt krijgt hij/zij 3 punten. 
+Voor iedere keer dat de speler de mol mist verliest hij/zij een punt. 
+
+\needspace{5\baselineskip}
+\begin{opgave}
+    \opgVraag
+	Voeg een \menuitem{HorizontalArrangement} toe in de \menuitem{Viewer} waarin je de score informatie laat zien. Breid bovendien je programma in de \menuitem{Blocks Editor} uit zodat de score wordt bijgehouden. 
+\end{opgave}
+
+\section{Mol sneller laten bewegen bij hoge score}
+Naarmate de tijd vordert en hopelijk de score hoger wordt blijft de uitdaging van het spel op dit moment gelijk. 
+Het spel vereist helaas niet steeds meer van het reactievermogen van de speler maar dat kunnen we veranderen.
+
+\begin{opgave}
+    \opgVraag
+    	\reminder{\lefthand}{Hint: Als je de \menuitem{Clock} component selecteert in bijvoorbeeld de \menuitem{viewer} zie je bij \menuitem{Properties} een veld dat \emph{TimerInterval} heet. Kun je iets vergelijkbaars vinden in de \menuitem{Blocks Editor}?}
+	Zorg ervoor dat voor elke 50 punten die de speler heeft de mol 50 milliseconden sneller beweegt. Houd rekening met een grens voor de snelheid.
+\end{opgave}
+
+\section{Bonus opgaven}
+Je kunt op dit moment nog niet afgaan bij het spel. Je kunt dit veranderen door de speler af te laten gaan 
+wanneer hij/zij onder de 0 punten zakt. Een alternatief is door levens in te bouwen in het spel en deze 
+onder bepaalde voorwaarden af te pakken tot de speler geen levens meer over heeft.
+
+\begin{opgave}
+    \opgVraag
+    	\reminder{\lefthand}{Tip: Laat vaker andere dieren verschijnen naarmate de speler een hogere score bereikt.}
+	Voeg naast de mol ook een andere dieren toe aan het spel. Laat deze dieren af en toe verschijnen in plaats van de mol. Deze dieren mag je niet meppen en als een speler dit toch doet verliest hij/zij een leven. Wanneer de speler geen levens meer heeft is het spel afgelopen.
+\end{opgave}
+
+\section{Testen op je telefoon}
+\runOpTelefoon{} Tot nu toe heb je de app enkel getest in de emulator. Leuker is natuurlijk om de app ook op je eigen telefoon te draaien, je kunt hem dan ook thuis laten zien!
+
+Vanuit de design omgeving kun je rechtsboven kiezen voor \menuitem{Package for Phone} en vervolgens \menuitem{Show barcode}. Na verloop van tijd (afhankelijk van de drukte kan dit enkele minuten duren) krijg je een venster met daarin een zogenaamde QR-code. Deze code kun je scannen met de camera van je telefoon. Hiervoor heb je een app nodig, een voorbeeld is \emph{Qr Barcode Scanner}, je kunt deze downloaden in de \emph{Play Store}.
+
+Na het openen van Qr Barcode Scanner kies je voor \menuitem{Scan Barcode}, je kijkt nu door je camera. Richt de camera op de barcode op het scherm. De app leest de barcode en geeft je de optie de URL die hierin verstopt is te openen in de browser. Na het openen van de browser wordt de download van een .apk bestand gestart. 
+
+Na het downloaden open je het bestand. Wat er precies gebeurt is afhankelijk van je telefoon en de versie van Android. Waarschijnlijk krijg je eerst de melding dat de installatie is geblokkeerd. Android telefoons zijn standaard ingesteld dat ze enkel applicaties vanuit de Market of Play Store kunnen installeren. Door \menuitem{Onbekende bronnen} aan te vinken in het \menuitem{Beveiliging} onderdeel van \menuitem{Instellingen} kun je dit toestaan. Nadat je dit hebt gedaan open je de .apk opnieuw. Je krijgt nu de vraag of je de applicatie wilt installeren, je kiest voor de knop \menuitem{Installeren}. Na enkele ogenblikken is de applicatie ge\"installeerd en kun je deze \menuitem{Openen}. 
+
+De volgende keer dat je de applicatie via een barcode wilt installeren zal de telefoon vragen of je de applicatie wilt vervangen, dit bevestig je door op \menuitem{OK} te klikken en de applicatie vervolgens op dezelfde manier te \menuitem{Installeren}.

@@ -1,0 +1,319 @@
+\chapter{Meteoor}
+
+\section{Vooraf}
+In dit hoofdstuk gaan we een simpel spel zelf maken. We gebruiken hiervoor de \block{Orientation Sensor} van de mobiel, die aangeeft of het apparaat rechtop gehouden wordt of gekanteld is. We bouwen het stapje voor stapje op. 
+
+Allereerst verkennen we een stukje van de 
+\linebreak \block{Orientation Sensor}. Dan gaan we hiermee een zogenaamde 
+% \linebreak 
+\block{ImageSprite} aansturen, dat is een plaatje dat je makkelijk over het scherm kunt bewegen. In dit spel wordt de \block{ImageSprite} gebruikt voor een raket. De raket wordt bestuurd door de telefoon naar links of rechts te draaien. 
+
+Ook worden aanwijzigingen gegeven hoe je het zonder de \block{Orientation Sensor} kunt maken, mocht je mobiel niet zo'n sensor hebben of voor het geval je aangewezen bent op de \emph{emulator} van \ai. Vervolgens zien we hoe we meteorieten over het scherm kunnen laten bewegen die ontweken moeten worden. Door te detecteren als de raket tegen een meteoriet botst weet het programma wanneer je af bent.
+
+
+\section{De Orientation Sensor}
+Allereerst hebben we in \ai  een nieuw project nodig. Wij noemen het project `meteoor' maar je kunt zelf als je wilt een andere naam kiezen. 
+Het eerste wat we doen is het zichtbaar maken van wat de sensor `voelt'. Daarvoor gebruiken we \block{labels}. Sleep drie \block{labels} (Uit het \menuitem{basic palette}) op het screen. Het is een goed gebruik onderdelen van je programma meteen een duidelijke naam te geven, maar deze labels gebruiken we alleen om de waarden van de sensor zichtbaar te maken, ze verdwijnen verderop weer, dus we hebben meteen een uitzondering op de regel. 
+
+In het palette \menuitem{Sensors} vind je de
+\linebreak \block{OrientationSensor}. Sleep ook deze op het screen. Er komt \block{OrientationSensor1} te staan onder het scherm onder de tekst: \menuitem{Non-visible components}. Tijdens het uitvoeren van het programma is deze sensor namelijk niet zichtbaar, maar tijdens het ontwikkelen willen we natuurlijk wel ergens aan kunnen zien dat de sensor er staat. 
+
+Open de \menuitem{Blocks Editor} met de knop 
+\linebreak \menuitem{Open the blocks editor}. 
+Klik links op de tab \menuitem{My Blocks}, dan in het rijtje eronder op 
+\block{Orientation Sensor1}, waardoor de mogelijkheden die we met dit component hebben zichtbaar worden. E\'en ervan is een block met daarin de tekst: 
+\linebreak \block{OrientationSensor1.OrientationChanged}. 
+Dit is een event (gebeurtenis) dat optreedt als je de mobiel draait. 
+Als het event optreedt worden de codeblocks die in dit block geplaatst worden uitgevoerd. Sleep het block naar rechts op het programmaveld. Bovenaan het block aan de rechterkant staan drie \emph{parameters} met de namen $azimuth$, $pitch$ en $roll$. Klik onder \menuitem{MyBlocks} op de naam van het eerste label, en sleep dan het block met de tekst \block{set Label1.Text to} in de opening in \block{OrientationSensor1.OrientationChanged}. 
+
+\inlinefig{screenshots/meteoor_Orientation01}{Het begin is er...}
+
+We willen in dit \block{label} de waarde laten zien van de eerste parameter: $azimuth$. Deze is bereikbaar via tab: \menuitem{My Blocks} | \menuitem{My Definitions}: sleep \block{value azimuth} naar het programmeerveld, klik hem met het \emph{puzzel-blobje} aan de \block{set Label1.Text to} vast. Doe hetzelfde voor het tweede en derde label met de waarden voor $pitch$ en $roll$.
+
+\inlinefig{screenshots/meteoor_Orientation02}{waarden}
+
+\runOpTelefoon{}
+Zet het programma op de mobiel en start het op. Draai het apparaat in verschillende richtingen en kijk naar de getallen. De waarde van $roll$ is $0$ als je het toestel waterpas houdt. Als je het naar links overhelt geeft dit getal aan hoeveel graden ($90$ als je toestel op zijn kant houdt), naar rechts ook maar dan met een min ervoor ($-90$ als je het toestel op zijn kant houdt). Met wat fantasie kun je het programma dat we nu hebben al gebruiken als een soort waterpas.
+
+\begin{opgave}
+    \opgVraag
+	\reminder[-.4in]{\lefthand}{Hint: Je kunt als je er niet uitkomt op internet de woorden $azimuth$ en $pitch$ nazoeken}
+	Probeer zelf eens uit te vinden wat de andere twee getallen aangeven! 
+\end{opgave}
+
+\section{De raket}
+We gaan nu een raket maken die we gaan besturen met de $roll$-waarde. In \ai kunnen de \block{Labels} voor $pitch$ en $azimuth$ weg. Selecteer ze \'e\'en voor \'e\'en en klik daarna op de button \emph{Delete}. Als je met \emph{alt+tab} naar de \menuitem{block editor} gaat zie je dat de bijbehorende blocks ook verdwenen zijn. 
+
+Onder palette \menuitem{Animation} vind je een \block{ImageSprite}. Deze willen we op het scherm laten zien. Een 
+\linebreak \block{ImageSprite} heeft echter een zogenaamd \block{Canvas} nodig om getoond te worden op een scherm. Sleep daarom een \block{Canvas} (palette \menuitem{Basic}) op je \menuitem{Screen}. Klik op het \block{Canvas} zodat het geselecteerd is. In de rechterkolom op het scherm (onder \menuitem{Properties}) zie je een aantal eigenschappen (inderdaad: \emph{properties} in het engels). 
+
+De bovenste is de \menuitem{BackGroundColor}. Door op de kleur te klikken kun je een andere kleur kiezen. Ook met de andere waarden kun je een beetje experimenteren naar behoefte. Het meest interessant voor nu zijn echter de onderste twee: \menuitem{Width} en \menuitem{Height}. Stel beiden in op: \emph{`Fill parent...'}. Je ziet dat de breedte zo breed wordt als het scherm is, echter de hoogte blijft klein. Selecteer onder \menuitem{Components} het \menuitem{Screen1} en zet \menuitem{Scrollable} op \emph{uit}, dan zal het \block{Canvas} gelijk hoger worden. 
+
+Daarmee zijn we klaar om de \block{ImageSprite} (palette \menuitem{Animation}) op het \block{Canvas} te slepen. Zet hem ongeveer midden op het scherm. Dit wordt de raket. In de kolom \menuitem{Components} helemaal onderin staat een balkje \menuitem{Media}, met een knop \block{Add...}. Gebruik de \emph{browse}-button om een plaatje van een raket toe te voegen. Wij raden aan er voor nu een te nemen uit de directory plaatjes (bijvoorbeeld 'raket2.jpg'), maar als je een beetje handig bent kun je zelf een ander (niet te groot) plaatje ervoor in de plaats zetten. Experimenteer en leer... 
+
+Selecteer de \block{ImageSprite} en kies rechts bij de \menuitem{Properties} voor \menuitem{Picture} het zojuist toegevoegde plaatje. Op het \block{Canvas} kun je nu je raket bewonderen. 
+
+\section{Besturing}
+
+Laten we zeggen dat we als de telefoon $45$ graden naar links helt ($roll=45$) de raket links op het scherm ($x$-positie is dan $0$) moet staan, bij $45$ graden naar rechts ($roll= -45$) rechts op het scherm. Rechts op het scherm wil zeggen dat de $x$-co\"ordinaat bijna gelijk is aan de breedte van het Canvas ($Canvas.Width$), echter de breedte van de raket moet daar vanaf gehaald worden. Ofwel: de maximale $x$-co\"ordinaat is 
+\[
+     Canvas.Width - ImageSprite.Width
+\]
+
+Aangezien de waarde van deze expressie constant is slaan we deze op in een variabele, die we noemen: $xmax$. We hebben dan dus twee waarden van $roll$ en twee bijbehorende waarden van de $x$-co\"ordinaat:
+\begin{center}
+  \begin{tabular}{ r | r }
+    \hline
+	Roll	&	$x$-co\"ordinaat  \\
+	\hline 
+	-45	&	$0$             \\
+	45	&	$xmax$          \\
+    \hline
+  \end{tabular}
+\end{center}
+
+
+Van wiskunde ken je het \emph{lineaire verband}: we hebben twee waarden voor $roll$ en willen een berekening (lees: functie) die de bijbehorende $x$-coordinaat uitrekent. Bij wiskunde zou je het opschrijven als: 
+
+\begin{center}
+  \begin{tabular}{ l | r }
+    \hline
+	$x$	&	 $ f(x) = ax + b $  \\
+	\hline
+	-45	&	$0$               \\
+
+	45	& 	$xmax$            \\
+    \hline
+  \end{tabular}
+\end{center}
+
+
+
+Raak niet in de war komt doordat hier de $x$ aan de linkerkant staat! We kunnen de technieken uit de wiskunde mooi gebruiken om de formule op te stellen. Dit kan op verschillende manieren, je hebt er bij wiskunde vast wel een geleerd. Aangezien $-45$ en $45$ even ver aan beide kant van de $y$-as liggen weten we dat voor $x=0$ (dus ertussenin) de $f(x)$ ook tussen $0$ en $xmax$ (dus op $ 0.5 \times xmax $ ) ligt, ofwel: 
+\reminder{\lefthand}{In de wiskunde wordt $ a \times x $ afgekort tot $ax$, maar in de informatica is dat geen handige afspraak omdat variabelen vaak een naam krijgen langer dan \'e\'en letter.}
+\[
+	f(0) = a \times 0 + b = 0.5 \times  xmax 
+\]
+waaruit volgt dat:
+\[
+	b = 0.5 \times xmax
+\]
+dus de gezochte functie ziet er uit als:
+\[
+	f(x) = a \times x + 0.5 \times xmax
+\]
+Door een bekende $x$ in te vullen kunnen we de waarde van $a$ berekenen. 
+
+\begin{opgave}
+   \opgVraag
+	Laat zien dat hier uitkomt:
+\[
+	a=xmax/90
+\]
+%   \opgUitwerking
+%	f(-45) = a \times (-45) + 0.5 \times xmax = 0
+%	-45 \times a + 0.5 \times xmax = 0
+%	45 \times a = 0.5 \times xmax
+\end{opgave}
+dus we weten:
+\[
+	f(x) = xmax \times x/90 + 0.5 \times xmax
+\]
+of (controleer dat dit hetzelfde betekent):
+\[
+	f(x) = (x/90 + 0.5)  \times  xmax
+\]
+Terugvertaald naar de notatie met $roll$ en de $x$-co\"ordinaat staat er dan:
+\[
+	f(roll) = (roll/90 + 0.5)  \times  xmax
+\]
+
+\section{Kantelen}
+Terug naar de situatie: we waren aan het bepalen wat er moest gebeuren als het apparaat wordt gekanteld, ofwel als event  \block{OrientationSensor1.OrientationChanged} optreedt. De waarde van $roll$ krijgen we als parameter binnen en we willen dus de $x$-coordinaat van de raket zetten op: 
+\[
+	(roll/90 + 0.5)  \times  xmax
+\]
+ofwel
+\[
+	(roll/90 + 0.5)
+\]
+wat een optelling is van 0.5 en
+\[
+	roll/90
+\]
+Dit verkrijgen we door een deling te doen met de waarde van $roll$ door $90$. 
+We hebben dus een \emph{vermenigvuldiging} van een \emph{optelling} van een \emph{deling} (een hele mond vol) en de \emph{uitkomst} willen we plaatsen in de $x$-coordinaat van de \block{ImageSprite}, dus in het block 
+\linebreak \block{OrientationSensor1.OrientationChanged} voegen we een block toe uit \menuitem{My Blocks}, \block{ImageSprite1}, namelijk \emph{Set ImageSprite1.x to}.
+In het \emph{`to'}-vak voegen we allereerst een block toe voor de vermenigvuldiging. Onder tab \menuitem{Built-in}, als we op \menuitem{Math} klikken, vinden we een rij blocks die met rekenen te maken hebben. De eerste hiervan die we nodig hebben is het block voor de vermenigvuldiging: \block{$\times$}, en er zitten twee openingen in waar de twee waarden of expressies in moeten die vermenigvuldigd moeten worden. 
+
+\inlinefig{screenshots/meteoor_Orientation03}{positie}
+
+
+\section{xmax}
+We zijn nu op het punt aangekomen dat we de variabele $xmax$ nodig hebben. De definitie van een variabele gebeurt ergens op het programmeerveld: \menuitem{Built-in} | \menuitem{definition} | \block{def variable as} slepen we op het programmeerveld. Het woord `variable' moeten we vervangen door de naam van de variabele, in ons geval dus $xmax$. Klik op $variable$ en typ $xmax$ gevolgd door \emph{enter}. Hiervan wordt eenmalig de waarde gezet op $Canvas.Width - ImageSprite.Width$, dus een verschil (plaats een block met een \block{-} aan \block{def xmax as}, echter dat mag niet op de plek van de \emph{DEFinitie}, daar moet eerst een constante waarde in de variabele gezet worden, bijvoorbeeld $0$. 
+
+\marginfig{screenshots/meteoor_Orientation04}{global xmax}
+
+In het block waar we de waarde nodig hebben gaan we de berekening doen en het resultaat zetten we in de variabele. Sleep een block \block{set global xmax to} (uit \emph{My Blocks} | \emph{My Definitions}) naar het block  
+\linebreak \block{OrientationSensor1.OrientationChanged}, onder het commando dat de waarde van roll in de textbox zet. 
+In \block{set global xmax to} komt een block \block{-}. 
+In de linkse opening komt \block{Canvas.width} (het block vind je onder \emph{My blocks} | \emph{Canvas1}), in de rechtse 
+\linebreak \block{ImageSprite.width} (vind dit onder \emph{My blocks} in 
+\linebreak \block{ImageSprite1}). De waarde van $xmax$ wordt nu berekend
+
+\inlinefig{screenshots/meteoor_Orientation05}{Introductie global xmax}
+
+
+en we gaan nu de waarde van deze variabele gebruiken in de vermenigvuldiging die we in  
+\linebreak \block{OrientationSensor1.OrientationChanged} aan het opbouwen waren. Aangezien $a \times b$ gelijk is aan $b \times a$ mag je zelf kiezen of je in de linker- of in de rechter opening het \block{global xmax}-block zet (dat je kunt vinden onder \emph{my blocks} | \emph{my definitions}). 
+
+In de andere opening komt de optelling van $0.5$ en de breuk, ook hier maakt niet uit welke aan de rechterkant staat. De $0.5$ krijg je door onder \menuitem{Math} een 
+\linebreak \block{number 123}-block te nemen en na het plaatsen op de $123$ te klikken om dit te veranderen in $0.5$ . 
+\reminder{\lefthand}{Let op: De volgorde in de breuk maakt wel uit.}
+In het andere gat moet de deling $ roll/90 $ komen. Zoek deze blocks zelf (kun je zelf bedenken waar ze te vinden of moet je eerst alle categorie\"en doorklikken?). 
+
+
+
+
+Merk op dat de blocks meteen werken als een soort \emph{haakjes}: het gebouwde betekent dus echt
+\[
+	xmax \times (0.5 + (roll/90))
+\]
+en \emph{niet} bijvoorbeeld
+\[
+	((xmax \times 0.5) + roll)/90  
+\]
+
+\runOpTelefoon{}
+Probeer het gebouwde programma dat je tot nu toe hebt eens uit: hou de mobiel schuin en kijk  wat de raket doet. 
+\inlinefig{screenshots/meteoor_Orientation06}{Je kunt nu de raket besturen}
+
+\section{Geen Orientation Sensor?}
+Als je geen mobiel hebt loop je hier wel tegen een uitdaging aan: de \block{Orientation Sensor} test je niet zomaar uit in een \emph{emulator}. Om dit op te lossen hebben we het volgende alternatief bedacht:
+In de \menuitem{block editor}, in de categorie \menuitem{ImageSprite1} onder \menuitem{My Blocks} vind je een block \block{ImageSprite1.Dragged}. \reminder{\lefthand}{De $y$-waarde moet blijven wat ie was!}Sleep dit block eens op het programmeerveld en kijk eens of je snapt wat het doet: hiermee is het mogelijk de raket te gaan besturen door met je vinger te \emph{draggen}.
+\inlinefig{screenshots/meteoor_Orientation07}{Drag de raket} 
+
+Als je beide manieren om de raket te sturen tegelijk ter beschikking hebt geeft dat een vreemd effect: je \emph{dragt} de raket bijvoorbeeld naar links en hij gaat daar ook naar toe, maar zo gauw je de mobiel ook maar enigszins beweegt springt de raket weer terug naar de plek die door de ori\"entatie bepaald wordt. Als je dit irritant vindt kun je \'e\'en van de twee uitzetten. E\'en manier waarop dit kan is door op block 
+\linebreak \block{OrientationSensor1.OrientationChanged} \'of op block \block{ImageSprite1.Dragged} te \emph{rechtermuisklikken} en dan in het \emph{contextmenu} dat verschijnt \menuitem{Deactivate} te kiezen. 	
+Vooral tijdens het ontwikkelen kan het soms handig zijn iets tijdelijk uit te kunnen zetten. 
+\begin{opgave}
+   \opgVraag (optioneel)
+	Als je heel handig bent kun je misschien zelfs maken (bijvoorbeeld met behulp van een \block{CheckBox} dat de gebruiker op de mobiel 
+	kan kiezen welke van de twee manieren hij wil gebruiken.
+\end{opgave}
+
+
+
+
+
+
+\section{Raket onderaan scherm}
+We hebben nu een raket gemaakt die we kunnen besturen, we komen echter nog geen obstakels tegen op onze weg door het heelal. Daar gaan we nu verandering in brengen. 
+
+Maar eerst moet de raket onderaan op het scherm staan, dat wil zeggen dat de $y$-co\"ordinaat maximaal moet zijn, maar wel zo dat de raket nog op de canvas staat en zichtbaar is: de waarde van de $y$-coordinaat moet daarom zijn:  
+\[
+	canvas.height - imagesprite1.height  
+\]
+
+We hebben \'e\'en belangrijke vuistregel bij het programmeren tot nu toe niet goed toegepast: onze raket heeft namelijk de naam \emph{ImageSprite1}, niet bepaald een duidelijke naam. Zo gauw er meerdere objecten in beeld zijn kan dat natuurlijk niet meer. We hernoemen daarom \block{ImageSprite1} naar \block{Raket}. Selecteer hiervoor in \ai `ImageSprite1' (onder \menuitem{Components}) om het te selecteren. Een stukje eronder zie een button \menuitem{Rename}. Klik er op en hernoem de raket naar \block{Raket}. In de \menuitem{Blocks Editor} kun je controleren dat alles er nog staat maar dan met de aangepaste naam. 
+
+Aangezien de raket altijd op dezelfde hoogte blijft hoeven we deze waarde maar 1 keer te zetten, namelijk bij het initieel opzetten van het scherm. We boffen, want tijdens het initieel opbouwen (in computertermen \emph{initializing}) van het screen worden de commando's uit het block \block{Screen1.initialize} (zie \menuitem{My blocks} | \menuitem{Screen1}) uitgevoerd. Zet hier een 
+\linebreak \block{Set Raket.Y to}-block in. Als je dit niet weet te vinden, zoek dan enkele bladzijden terug waar de 
+\linebreak \block{ImageSprite1.X} vandaan kwam. 
+Bouw hier de volgende formule op:
+
+\inlinefig{screenshots/meteoor_Orientation08}{Zet Raket onder in scherm} 
+%  <pic> met formule [in screen.initialize] sprite.y = canvas.height - sprite.height
+\runOpTelefoon{} 
+
+\section{Obstakels}
+
+De raket staat nu dus onderaan het scherm. Sleep uit het palette \menuitem{Animation} een \block{Ball} op het \block{canvas}. Een \block{Ball} lijkt qua mogelijkheden veel op een 
+\linebreak \block{ImageSprite}, maar is zo rond als een bal. 
+Je kunt het plaatje niet zelf uitkiezen. Hernoem (\menuitem{Rename}) \block{Ball1} tot \block{Meteoor}.
+
+Als je heel precies het verschil tussen een \block{ImageSprite} en een \block{Ball} wilt weten kun je in het palette op de vraagtekens rechts van de \block{ImageSprite} en \block{Ball} klikken.
+In het algemeen is het slim als je ergens meer van wilt weten de help te bekijken. Behalve dat je daar vaak het antwoord op je vraag vindt, vind je er veel nuttige info. 
+
+
+Als we de meteoor willen bewegen kunnen we natuurlijk de $x$ en $y$-co\"ordinaten gaan veranderen. Als je echter de meteoor selecteert en kijkt in de rechterkolom bij de \menuitem{Properties} kijkt zie je eigenschappen als \menuitem{Heading}, \menuitem{Interval} en \menuitem{Speed}. Zet de \menuitem{Speed} (inderdaad, de snelheid) van de meteoor eens op $40$ en kijk wat er gebeurt. 
+\runOpTelefoon{}
+Het Interval staat waarschijnlijk op $1000$. Dat betekent dat elke $1000$ milli-seconde (inderdaad, dat is $1$ seconde) de meteoor met zijn snelheid vooruit wordt gezet. Als de beweging schokkerig overkomt kun je het Interval kleiner maken. Maak er maar eens $200$ van en kijk wat er gebeurt. 
+\runOpTelefoon{}
+
+De beweging is minder schokkerig, maar ook sneller. Welke kant beweegt de meteoor op? 
+
+
+\begin{opgave}
+   \opgVraag
+	Met behulp van de \menuitem{Heading} (dit is een hoek in graden) kun je aangeven welke kant de bal op moet bewegen. Probeer het uit of lees het in de help. 
+	Pas de waarde van \menuitem{Heading} aan zodat de bal van boven naar beneden beweegt, dus in de richting van de raket. 
+\end{opgave}
+
+Als alles tot zover is gelukt zie je dat het meteoorletje erg klein is, maar als je de Radius op bijvoorbeeld $25$ zet zie je dat de bal al heel wat groter is. Als het spel af is kun je uitproberen wat jouw favoriete grootte is en snelheid... 
+
+
+\section{Meerdere meteoren}
+Als de meteoor echter beneden is aangekomen blijft ie liggen. We willen eigenlijk dat ie dan weer van boven het scherm binnenkomt,  wellicht in een andere grootte of kleur. Gelukkig helpt \ai ons ook hier weer uit de brand, namelijk met een event \emph{EdgeReached}, dat optreedt als de bal (in het geval van \block{Meteoor.EdgeReached}, wat te vinden is onder \menuitem{Meteoor} onder \menuitem{My Blocks}). 
+
+Als de meteoor beneden tegen de rand aan vliegt willen we dat de y-coordinaat weer 0 is, zodat de bal weer bovenaan begint. 
+Als je \block{Ball1.EdgeReached} op het programmeerveld sleept zie je dat deze een parameter \block{name edge} heeft. Hiermee kun je kijken tegen welke kant de meteoor gevlogen is. Aangezien wij de bal omlaag laten vliegen hoeven we niet te kijken, we weten al dat ie onder is aangekomen en boven opnieuw moet beginnen. In het block komt de code om de bal weer bovenaan het scherm te zetten. 
+
+\inlinefig{screenshots/meteoor_Orientation09}{Opnieuw boven beginnen} 
+
+\runOpTelefoon{}
+Het ziet er al bijna uit als een spel. De raket beweegt echter nogal schokkerig. Verder heeft een botsing geen gevolgen en tot slot blijft de meteoor steeds op dezelfde plek naar beneden komen. Het schokkerige kunnen we een eind oplossen door de het Interval van de raket kleiner te maken, net als we bij de ball ook gedaan hebben. Klik op de raket en zet het interval op $100$. Hoe kleiner het getal, hoe vaker de raket getekend wordt en dus hoe soepeler de beweging er uit ziet. Je zult echter wel snappen dat de mobiel het dan ook drukker heeft. 
+
+\runOpTelefoon{}
+
+\section{Botsing}	
+Nu gaan we kijken naar het botsen. Ook hiervoor  bestaat weer een event:
+
+   \menuitem{BlockEditor} | \menuitem{My Blocks} | \menuitem{Meteoor} | 
+	\linebreak \block{Meteoor.CollidedWith} 
+
+Het event treedt op als de Meteoor tegen een ander voorwerp botst en uit de parameter \emph{other} kunnen we concluderen met welk voorwerp. Aangezien we al weten dat het de Raket is hoeven we dit niet te controleren: zo gauw het event optreedt weten we dat de Raket tegen een Meteoor geknald is. Voor nu zetten we dan de Meteoor stil, al is dat niet erg spectaculair. Sleep de code bij elkaar:
+
+%<pic>  Collided | set meteoorl1.speed to 0
+\inlinefig{screenshots/meteoor_Orientation10}{Botsing} 
+
+\runOpTelefoon{}
+\begin{opgave}
+   \opgVraag
+	Hoewel in het echt in vacu\"um natuurlijk geen geluid te horen is wordt het spel wel spectaculairder als je het geluid van een botsing toevoegt als de Raket tegen een Meteoor botst. 
+\end{opgave}
+
+
+Als we de meteoor succesvol ontwijken willen we dat ie op een willekeurige plek bovenin het scherm terugkomt, oftewel in het EdgeReached code-block willen we een willekeurige x-coordinaat zetten. \block{set Meteoor.x to} , onder \emph{Math} vind je een \block{random integer}-block. Hierin kun je \emph{from} en een \emph{to}-parameter invullen. Neem $ From=0 $ en $ To=xmax $, de eerder door ons berekende maximale x-coordinaat (zie \emph{my blocks} | \emph{my definitions}) die we hier handig kunnen hergebruiken. 
+
+\inlinefig{screenshots/meteoor_Orientation11}{Botsing} 
+
+
+
+
+\section{En weer verder}
+Als \runOpTelefoon{}de meteoor stil staat en je klikt er op (\block{Meteoor.Touched}) moet het spel weer verder gaan. Er moet een \emph{`nieuwe'} meteoor komen van boven: hiertoe moeten we de y op $0$ zetten en de snelheid (die we bij de botsing op $0$  hebben gezet) weer op een goede waarde. We gebruiken een willekeurige (random) waarde tussen $30$ en $70$. Verder moeten de meteoren allemaal hun eigen grootte krijgen, ook \emph{random} (willekeurig) dus.
+
+\inlinefig{screenshots/meteoor_Orientation12}{Botsing} 
+%<pic>: 
+	%Ball1.Touched met set Ball1.y to 0
+	%set Ball1.Speed to random(30,70), set Ball1.Radius to random(10,50)
+
+\runOpTelefoon{}
+Het \block{Label} waar nog steeds de waarde van $roll$ in gezet wordt kan inmiddels wel weg. Selecteer het in de \menuitem{screen editor} en druk op \menuitem{delete} (knop in kolom \menuitem{Components}, rechterkant). 
+
+
+
+
+\section{Mogelijke uitbreidingen}
+
+\begin{enumerate}
+\item	Iedere `nieuwe' Meteoriet een willekeurige kleur. 
+\item	Besturing andersom (en wellicht versnellend als mobiel scheefgehouden, ipv. constant)
+\item	Aantal levens
+\item	\emph{Game over}: met een Label dat normaal onzichtbaar is en zichtbaar wordt gemaakt na een botsing kun je dit vrij eenvoudig maken. 
+\item	Meerdere levels (bijvoorbeeld door de snelheid te verhogen, of misschien wel een tweede Meteoor erbij)
+\item	Een ander plaatje als meteoor? Je kunt hiervoor een \block{ImageSprite} gaan gebuiken. 
+\end{enumerate}
+
+
