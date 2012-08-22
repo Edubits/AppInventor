@@ -10,4 +10,4 @@ Ga naar de [downloadpagina](https://github.com/Edubits/AppInventor/downloads) en
 ## Licentie
 ![Creative Commons License](http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png)
 
-Dit werk is gelicenseerd onder een [Creative Commons Naamsvermelding-NietCommercieel-GelijkDelen 3.0 Unpor- ted](http://creativecommons.org/licenses/by-nc-sa/3.0/).
+Dit werk is gelicenseerd onder een [Creative Commons Naamsvermelding-NietCommercieel-GelijkDelen 3.0 Unported](http://creativecommons.org/licenses/by-nc-sa/3.0/).
