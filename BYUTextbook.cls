@@ -20,21 +20,11 @@
     \ShortChapTitlestrue
 }
 
-\newif\ifebook
-\DeclareOption{ebook}{
-    \ebooktrue
-}
-
 % Load the book class
     \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
     \ProcessOptions\relax
 
-\ifebook
-    \LoadClass[oneside,11pt]{book}
-\else
-    \LoadClass[twoside,a5paper,11pt]{book}
-\fi
-
+\LoadClass[twoside,a5paper,11pt]{book}
 
 % This package allows us to monkey with margins to center
 % on the page when desired.
@@ -79,20 +69,6 @@
 
 % Include graphics
     \usepackage{graphicx}
-
-% Set the margins for US Letter paper
-%    \setlength{\marginparwidth}{2in}
-%    \setlength{\marginparsep}{0.25in}
-%    \setlength{\oddsidemargin}{0.0in}
-%    \setlength{\evensidemargin}{1.5in}
-%    \setlength{\textwidth}{5in}
-%    \setlength{\topmargin}{0in}
-%    \setlength{\headheight}{0.2in}
-%    \setlength{\headsep}{0.35in}
-%    \setlength{\textheight}{8.4in}
-%    \setlength{\footskip}{0.35in}
-%    \raggedbottom
-%    \renewcommand{\baselinestretch}{1}
 
 % Set the margins for A5 paper
     \setlength{\marginparwidth}{1.3in}
@@ -187,22 +163,10 @@
 % Define the margin figure command
 \usepackage{array}
 \newcommand{\marginfig}[3][0pt]{
-    \ifebook % Margin figures get shifted inline for ebooks.
-        \par\bigskip\captionsetup{type=figure}
-        \begin{center}\begin{tabular}{m{2in}m{2in}}
-        \raisebox{-\height}{\includegraphics[width=2in]{#2}}
-          &
-          \vfill
-        \captionof{figure}[]{#3} \label{#2}
-         \vfill
-          \\
-        \end{tabular}\end{center}
-        \bigskip\par
-    \else
-        \marginpar{\vskip#1 \captionsetup{type=figure}
-        \vtop{\vskip0pt\hbox{\includegraphics[width=1.37in]{#2}}}
-        \captionof{figure}[]{#3} \label{#2}}
-    \fi}
+    \marginpar{\vskip#1 \captionsetup{type=figure}
+    \vtop{\vskip0pt\hbox{\includegraphics[width=1.37in]{#2}}}
+    \captionof{figure}[]{#3} \label{#2}}
+    }
 
 % Define the inlinefig command
 \newcommand{\inlinefig}[3][3.2in]{\par \vspace{4pt}\parbox{3in}{
@@ -280,21 +244,6 @@
 
 % Column Table
 \newcommand{\columntable}[5][0pt]{
-    \ifebook
-        \par
-        \captionsetup{type=table}
-        \begin{center}\begin{tabular}{p{2in}p{2in}}
-        \fcolorbox{TableBorder}{TableBackground}{
-        \vspace{2pt}
-        \begin{minipage}[t][#2]{1.8in}
-        \footnotesize \RaggedRight
-        #3
-        \end{minipage}
-        }
-        &
-        \captionof{table}{#4}
-        \end{tabular}\end{center}
-    \else
     \marginpar{\captionsetup{type=table} \vspace{#1}
     \fcolorbox{TableBorder}{TableBackground}{
     \begin{minipage}[t][#2]{1.23in}
@@ -303,25 +252,14 @@
     #3
     \end{minipage}
     } \captionof{table}{#4} }
-    \fi
     }
     
 \definecolor{LightBlue}{rgb}{.8,.9,1}
 % Make the personfeature command
 \newcommand{\personfeature}[5][0pt]{
-    \ifebook
-        \begin{figure}[b]
-        \begin{center}\fcolorbox{TableBorder}{TableBackground}{\begin{tabular}{p{2in}p{2.5in}}
-        \raisebox{-\height+0.45\baselineskip}{\includegraphics[width=2in]{#2}}
-          &
-        \scriptsize \RaggedRight
-        \textbf{#3} (#4) #5
-          \\
-        \end{tabular}}\end{center}
-        \end{figure}
-    \else\marginpar{\vskip#1\sf
-    \scriptsize \RaggedRight \centerline{\includegraphics{#2}}\par\vspace{0.1in}
-    \textbf{#3} (#4) #5}\fi}
+   \marginpar{\vskip#1\sf
+   \scriptsize \RaggedRight \centerline{\includegraphics{#2}}\par\vspace{0.1in}
+   \textbf{#3} (#4) #5}}
 
 % The examplebar package allows the set-off bars next to
 % examples and derivations.
@@ -352,15 +290,6 @@
 \ifpdf
     \renewcommand{\theHfigure}{\thechapter.\arabic{figure}} %This is needed to keep unique links for hyperref
 \fi
-
-%\newenvironment{example}[1]
-%    {\cbcolor{BarColor}\par \vspace{8pt} \cbstart
-%    \begin{enumerate}\item[]
-%     \refstepcounter{example}\noindent\textbf{Example \theexample}
-%     \par\vspace{5pt}\small\noindent\noindent#1
-%     \par\vspace{20pt}\noindent\textbf{Solution:}
-%    }
-%    {\end{enumerate} \cbend\par \vspace{10pt}}
 
 \newenvironment{opgave}
     {\cbcolor{BarColor}\par \vspace{10pt} \cbstart
@@ -466,44 +395,3 @@
 % Needs mathtools package
 \newtagform{numnoteformat}{(}{)}
 \newcommand{\numnote}[1]{\renewtagform{numnoteformat}{{\color{NoteColor}{#1}}~~(}{)}\usetagform{numnoteformat}}
-
-\ifebook
-    \setlength{\marginparwidth}{0in}
-    \setlength{\marginparsep}{0in}
-    \setlength{\oddsidemargin}{-0.75in}
-    \setlength{\textwidth}{5in}
-    \setlength{\topmargin}{-0.75in}
-    \setlength{\headheight}{0.3in}
-    \setlength{\headsep}{0.1in}
-    \setlength{\textheight}{500cm}
-    \setlength{\footskip}{0in}
-    \fancyheadoffset[LE,RO]{\marginparsep+\marginparwidth}
-
-    \usepackage{everyshi}
-    \pagestyle{empty}
-    \textheight500cm
-    \pdfpageheight500cm
-    \makeatletter
-    \EveryShipout{\pdfpageheight=\pagetotal
-    \advance\pdfpageheight by 2in
-    \advance\pdfpageheight by \topmargin
-    \advance\pdfpageheight by \footskip
-    \advance\pdfpageheight by \textheight
-    \advance\pdfpageheight by -\pagegoal}
-    \makeatother
-
-    % Each section is its own "page"
-    \let\stdsection\section
-    \renewcommand\section{\pagebreak\stdsection}
-
-    % the index can't be two column, so disallow this environment
-    \renewcommand{\twocolumn}[1][]{#1}
-
-    % Get rid of margin content
-    \renewcommand{\outnote}[1]{\numnote{#1}}
-    \AtBeginDocument{\pdfpageheight=500cm \pdfpagewidth=5.5in}
-    \pagestyle{empty}
-    \renewcommand{\sectionmark}[1]{\markright{\leftmark}}
-\else
-
-\fi
