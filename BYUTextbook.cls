@@ -75,12 +75,12 @@
     \setlength{\marginparsep}{0.17in}
     \setlength{\oddsidemargin}{-0.4in}
     \setlength{\evensidemargin}{1in}
-    \setlength{\textwidth}{3.43in}
+    \setlength{\textwidth}{3.33in}
     \setlength{\topmargin}{0in}
-    \setlength{\headheight}{0.15in}
+    \setlength{\headheight}{0.2in}
     \setlength{\headsep}{0.26in}
-    \setlength{\textheight}{6.3in}
-    \setlength{\footskip}{0.26in}
+    \setlength{\textheight}{6in}
+    \setlength{\footskip}{0.36in}
     \raggedbottom
     \renewcommand{\baselinestretch}{1}
 
@@ -169,7 +169,7 @@
     }
 
 % Define the inlinefig command
-\newcommand{\inlinefig}[3][3.2in]{\par \vspace{4pt}\parbox{3in}{
+\newcommand{\inlinefig}[3][3.1in]{\par \vspace{4pt}\parbox{2.9in}{
     \captionsetup{type=figure}
     \centering \includegraphics[width=#1]{#2}\par\vspace{0.03in}
     \captionof{figure}{#3 \label{#2}} } \par \vspace{4pt}}
@@ -292,8 +292,8 @@
 \fi
 
 \newenvironment{opgave}
-    {\cbcolor{BarColor}\par \vspace{10pt} \cbstart
-    \begin{enumerate}\item[]
+    {\cbcolor{BarColor}\par \vspace{10pt} \cbstart \vspace{-10pt}
+    \begin{enumerate} \item[]
      \refstepcounter{opgave}\noindent\textbf{Opgave \nopagebreak
      \theopgave} } {\end{enumerate} \cbend\par \vspace{8pt}}
 
