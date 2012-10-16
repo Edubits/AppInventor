@@ -25,6 +25,19 @@ Als we de emulator `van slot' hebben gehaald kunnen we verbinding maken met de e
  
 Wat er gebeurt is nog niet zo heel spannend en uitdagend maar daar kun je wat aan doen! Hieronder volgt een serie opdrachten waardoor je `Mollen Meppen' tot een echt spel kunt maken. We raden je aan om na iedere opgave waarin je de code aanpast deze uit te testen op de emulator. Veel succes!
 
+\section{Blocks Editor}
+Voordat we de code gaan aanpassen staan we even stil bij het scherm wat we nu voor ons hebben staan, de Blocks Editor. Dit scherm gebruik je om te programmeren. Net als het design-scherm bestaat ook dit scherm uit verschillende onderdelen. Deze onderdelen zie je in figuur \ref{screenshots/MollenMeppen_BlocksEditor}.
+
+\inlinefig{screenshots/MollenMeppen_BlocksEditor}{De verschillende onderdelen van de Blocks Editor}
+
+\begin{description}
+  \item[1. De knoppenbalk] In deze balk vind je knoppen om het project op te slaan, stappen ongedaan te maken en om met de emulator te communiceren.
+  \item[2. Palette] Het palette is de plek waar je alle categorie‘n van blocks terugvindt om te gebruiken in jouw app. Onder de tab My Blocks vind je de door jouw aangemaakte componenten. Hierachter vind je de bijbehorende blocks, hiermee kun je bijvoorbeeld een actie koppelen aan een knop.
+  \item[3. Blocks] Als je in het palette een categorie aan klikt verschijnt dit overzicht. Hierin vind je de blocks zelf, die je vervolgens naar het canvas kan slepen om ze te gebruiken.
+  \item[4. Canvas] In dit deel programmeer je jouw applicatie. Vanuit het palette sleep je blocks naar het canvas. Wil je een block verwijderen, dan sleep je deze naar de prullenbak rechtsonder.
+\end{description}
+
+
 \section{Willekeurig opduiken van de mol}
 De mol beweegt zich erg voorspelbaar op dit moment en dat maakt het spel saai. In de \menuitem{Blocks Editor} kunnen we zien waarom de mol zich zo gedraagt.
 
@@ -34,7 +47,7 @@ De mol beweegt zich erg voorspelbaar op dit moment en dat maakt het spel saai. I
 	zoals je ziet wanneer je erop klikt. 
 \end{opgave}
 
-Wat we hier feitelijk willen is dat de $x$ en $y$ positie van de mol (de \emph{ImageSprite}) willekeurig bepaald worden. Hiervoor kunnen we een \emph{block} vinden onder de \menuitem{Built-In} tab bij \menuitem{Math}, zie figuur \ref{screenshots/MollenMeppen_BlocksEditor_Built-In_Math}. \emph{Blocks} uit de \menuitem{Blocks Editor} kunnen we simpelweg in het \menuitem{blokkenveld} slepen en daar neerzetten of in elkaar klikken. Als je per ongeluk een verkeerd \emph{block} hebt gebruikt kun je het verwijderen door het naar de prullenbak rechts onder in het scherm te slepen en het block los te laten.
+Wat we hier feitelijk willen is dat de $x$ en $y$ positie van de mol (de \emph{ImageSprite}) willekeurig bepaald worden. Hiervoor kunnen we een \emph{block} vinden onder de \menuitem{Built-In} tab bij \menuitem{Math}, zie figuur \ref{screenshots/MollenMeppen_BlocksEditor_Built-In_Math}. \emph{Blocks} uit de \menuitem{Blocks Editor} kunnen we simpelweg in het \menuitem{canvas} slepen en daar neerzetten of in elkaar klikken. Als je per ongeluk een verkeerd \emph{block} hebt gebruikt kun je het verwijderen door het naar de prullenbak rechts onder in het scherm te slepen en het block los te laten.
 
 \inlinefig{screenshots/MollenMeppen_BlocksEditor_Built-In_Math}{Locatie van de `Built-In' Math link}
 
