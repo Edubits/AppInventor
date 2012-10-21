@@ -17,7 +17,7 @@ Als eerste wordt het \bestand{AppInventorForAndroidCodeblocks.jnlp} bestand geop
 De \menuitem{Blocks Editor} is een aparte applicatie die niet in je webbrowser draait. Je ziet in je taakbalk dan ook een \emph{App Inventor for Android Blocks Editor: MollenMeppen - Screen 1} pictogram. Je kunt met `ALT-TAB' makkelijk wisselen tussen het \menuitem{Design} scherm en de \menuitem{Blocks Editor}.
 \end{derivation}
 
-Om de applicatie uit te voeren moet je eerst een emulator opstarten. Dit doe je via de \menuitem{New emulator} link zoals aangegeven in figuur \ref{screenshots/MollenMeppen_BlocksEditor_New_emulator}. Als de emulator is opgestart ziet deze er uit zoals afgebeeld in figuur \ref{screenshots/MollenMeppen_emulator_unlock}. De emulator staat nu nog `op slot', we kunnen het slot verwijderen door met de muis op het \menuitem{slotje} te klikken, de muisknop ingedrukt te houden, de muis in de richting van de pijl te bewegen zoals aangegeven in figuur \ref{screenshots/MollenMeppen_emulator_unlock} en de muisknop weer los te laten.
+Om de applicatie uit te voeren moet je eerst een emulator opstarten. Dit doe je via de \menuitem{New emulator} link zoals aangegeven in figuur \ref{screenshots/MollenMeppen_BlocksEditor_New_emulator}. Als de emulator is opgestart ziet deze er uit zoals afgebeeld in figuur \ref{screenshots/MollenMeppen_emulator_unlock}. De emulator staat nu nog `op slot', je kunt het slot verwijderen door met de muis op het \menuitem{slotje} te klikken, de muisknop ingedrukt te houden, de muis in de richting van de pijl te bewegen zoals aangegeven in figuur \ref{screenshots/MollenMeppen_emulator_unlock} en de muisknop weer los te laten.
 
 \begin{derivation}{Let op}
 Zorg ervoor dat je de emulator maar \'e\'en keer opstart. Het meerdere keren opstarten van de emulator leidt tot een instabiele situatie en zorgt ervoor dat op den duur de boel kan crashen.
@@ -52,7 +52,7 @@ Op het moment dat je een component in het \menuitem{Design} scherm sleept of een
 
 
 \section{Willekeurig opduiken van de mol}
-De mol beweegt zich erg voorspelbaar op dit moment en dat maakt het spel saai. In de \menuitem{Blocks Editor} kunnen we zien waarom de mol zich zo gedraagt.
+De mol beweegt zich erg voorspelbaar op dit moment en dat maakt het spel saai. In de \menuitem{Blocks Editor} kun je zien waarom de mol zich zo gedraagt.
 
 \begin{opgave}
     \opgVraag
@@ -61,6 +61,7 @@ De mol beweegt zich erg voorspelbaar op dit moment en dat maakt het spel saai. I
 \end{opgave}
 
 \begin{derivation}{Procedures}
+\label{der:procedures}
 Als je de code bekeken hebt zoals in de opgave hiervoor gevraagd werd, is je hopelijk opgevallen dat er een zogenaamde procedure is gemaakt met de naam `verplaatsMol'. Deze procedure wordt aangeroepen vanuit `ImageSpriteMol.Touched'.
 
 Een procedure (in veel programmeertalen ook wel \emph{functie} genoemd) is een stuk code met een naam. In ons geval `verplaatsMol'. Via de naam kan de bijbehorende code uitgevoerd worden. De naam is als het ware een afkorting voor het stuk code.
@@ -125,7 +126,7 @@ Onder de \menuitem{My Blocks} tab staat nu een \menuitem{Clock 1} link omdat je 
 
 Als je niet weet hoe een timer werkt of je komt er niet helemaal uit, klik dan eens op de `Learn' link in je \menuitem{Design} scherm. Je kunt dan bij de \emph{Reference Documentation} op zoek gaan naar hoe een timer werkt.
 
-Hopelijk valt je op dat de documentatie net zo is opgezet als de ontwikkelomgeving van \ai zelf. Er wordt onderscheid gemaakt tussen componenten (dingen uit je \menuitem{Design} scherm) en blocks (dingen uit de \menuitem{Blocks Editor}.
+Hopelijk valt je op dat de documentatie net zo is opgezet als de ontwikkelomgeving van \ai zelf. Er wordt onderscheid gemaakt tussen componenten (dingen uit je \menuitem{Design} scherm) en blocks (dingen uit de \menuitem{Blocks Editor}).
 
 Kijk eens goed in je \menuitem{Design} scherm waar de \menuitem{Clock} component zit en ga dan in de documentatie zoeken.
 
@@ -135,7 +136,7 @@ Als het goed is heb je nu voordeel gehad van de procedure die we al voor je gema
 
 
 \section{Tellen van het aantal maal dat je mis slaat}
-Naast het bijhouden hoe vaak een speler de mol raakt willen je ook graag bijhouden hoe vaak de speler mis slaat. In je \menuitem{Components} staat een \block{HorizontalArrangement1} die ervoor zorgt dat je componenten horizontaal in je scherm kunt rangschikken. De componenten erin (\block{Label1} en \block{Label2}) komen overeen met `aantal geraakt' en `0' in je \menuitem{Viewer}.
+Naast het bijhouden hoe vaak een speler de mol raakt wil je ook graag bijhouden hoe vaak de speler mis slaat. In je \menuitem{Components} staat een \block{HorizontalArrangement1} die ervoor zorgt dat je componenten horizontaal in je scherm kunt rangschikken. De componenten erin (\block{Label1} en \block{Label2}) komen overeen met `aantal geraakt' en `0' in je \menuitem{Viewer}.
 
 \begin{opgave}
     \opgVraag
@@ -157,7 +158,7 @@ Naarmate de tijd vordert, en hopelijk de score hoger wordt, blijft de uitdaging 
 
 Daarvoor moet je onder bepaalde voorwaarden de mol steeds sneller laten bewegen. Om dit voor elkaar te krijgen heb je een zogenaamd \emph{if-statement} nodig. Zo'n \emph{if-statement} kun je vinden in de \menuitem{Blocks Editor} in de tab \menuitem{Built-In} onder \menuitem{Control}. Daar vindt je de \block{if} en \block{ifelse} \emph{blocks}.
 
-Bij een \emph{if-statement} wordt er getest of een expressie waar of niet waar is (we noemen zo'n expressie een Booleaanse expressie). Als de expressie waar is wordt de code die binnen het \emph{if-statement} staat wel uitgevoerd en anders wordt deze code overgeslagen.
+Bij een \emph{if-statement} wordt er getest of een expressie waar of niet waar is (we noemen zo'n expressie een \emph{Booleaanse expressie}). Als de expressie waar is wordt de code die binnen het \emph{if-statement} staat wel uitgevoerd en anders wordt deze code overgeslagen.
 
 %\needspace{5\baselineskip}
 \reminder[+.2in]{\lefthand}{Hint: Als je de \menuitem{Clock} component selecteert in bijvoorbeeld de \menuitem{viewer} zie je bij \menuitem{Properties} een veld dat \emph{TimerInterval} heet. Kun je iets vergelijkbaars vinden in de \menuitem{Blocks Editor}?}
@@ -166,12 +167,12 @@ Bij een \emph{if-statement} wordt er getest of een expressie waar of niet waar i
 	Zorg ervoor dat voor elke 50 punten die de speler heeft de mol 50 milliseconden sneller beweegt. Houd rekening met een grens voor de snelheid.
 \end{opgave}
 
-\begin{derivation}{conditioneel uitvoeren van code}
+\begin{derivation}{Conditioneel uitvoeren van code}
 Het conditioneel uitvoeren van code gebeurt bij het programmeren vaak met \emph{if-statements}. Er zijn echter ook nog andere manieren zoals bij \ai het \block{choose} \emph{block}.
 
 \emph{if-statements} zijn belangrijk en essentieel bij het programmeren. Ze zorgen ervoor dat delen van het programma alleen onder bepaalde voorwaarden worden uitgevoerd.
 
-We noemen dit program control en het geeft gebruikers van onze applicatie de mogelijk om de flow van het programma te beïnvloeden.
+We noemen dit program control en het geeft gebruikers van onze applicatie de mogelijk om de flow van het programma te be\"invloeden.
 \end{derivation}
 
 
