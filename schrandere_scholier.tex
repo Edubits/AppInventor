@@ -1,24 +1,28 @@
 \chapter{Schrandere Scholier}
 
-In het vorige hoofdstuk hebben we een leuk spel gemaakt, we kunnen echter ook serieuze applicaties schrijven. Waarschijnlijk vraag je jezelf wel eens af welk cijfer je moet halen voor een toets om een 8 gemiddeld te blijven staan voor een vak. In dit hoofdstuk gaan we hier een hulpmiddel voor ontwikkelen.
+In het vorige hoofdstuk heb je een leuk spel gemaakt, je kunt echter ook serieuze applicaties schrijven. Waarschijnlijk vraag je jezelf wel eens af welk cijfer je moet halen voor een toets om een 8 gemiddeld te blijven staan voor een vak. In dit hoofdstuk ga je hier een hulpmiddel voor ontwikkelen.
 
-We zullen de applicatie stap-voor-stap opbouwen. We maken een begin met de gebruikersinterface in het \menuitem{design} scherm. Daarna zullen we in de \menuitem{Blocks}-editor ervoor zorgen dat de gebruiker cijfers kan invoeren waarmee we vervolgens kunnen gaan rekenen. Tot slot zorgen we ervoor dat de gegevens opgeslagen worden zodat we niet bij elke start opnieuw hoeven te beginnen.
+Je zult de applicatie stap-voor-stap opbouwen. Je maakt een begin met de gebruikersinterface in het \menuitem{design} scherm. Daarna zul je in de \menuitem{Blocks}-editor ervoor zorgen dat de gebruiker cijfers kan invoeren waarmee je vervolgens kunnen gaat rekenen. Tot slot zorg je ervoor dat de gegevens opgeslagen worden zodat je niet bij elke start opnieuw hoeft te beginnen.
 
 \section{Een nieuw project aanmaken}
-We beginnen met het aanmaken van een nieuw project. In hoofdstuk \ref{chap:ontwikkelomgeving} heb je een project aangemaakt door een bestaand project te uploaden. Dit keer beginnen we vanaf het begin. 
+Je begint met het aanmaken van een nieuw project. In hoofdstuk \ref{chap:ontwikkelomgeving} heb je een project aangemaakt door een bestaand project te uploaden. Dit keer begin je vanaf het begin. 
 
 Als je nog niet in het \menuitem{My Projects} scherm bent, ga hier dan nu naar toe. Klik op de knop \emph{new} om het venster zoals is weergegeven in figuur \marginfig{screenshots/SchrandereScholier_new_scherm}{`New App Inventor for Android Project'\ pop-up}\ref{screenshots/SchrandereScholier_new_scherm} te zien. Vul hier de naam van het project in, in dit geval `SchrandereScholier'. Na een klik op \menuitem{OK} wordt je nieuwe project aangemaakt en kom je terecht in het \menuitem{design}-scherm.
 
 \section{Gebruikersinterface}
-We beginnen met het ontwerpen van de gebruikersinterface. Voordat we hiermee aan de slag gaan: bekijk de verschillende onderdelen van het scherm nog eens in hoofdstuk \ref{sec:design-scherm}.
+Na het aanmaken van het project begin je met het ontwerpen van de gebruikersinterface. Voordat je hiermee aan de slag gaat: bekijk de verschillende onderdelen van het scherm nog eens in hoofdstuk \ref{sec:design-scherm}.
 
-Nu je een idee hebt van de interface kunnen we deze gaan gebruiken. We beginnen eenvoudig met het toevoegen van enkele \block{labels}, \block{TextBoxen} en een \block{knop}. \reminder{\lefthand}{Een label gebruik je om een stukje tekst weer te geven.}\marginfig{screenshots/SchrandereScholier_label}{Label}Sleep hiervoor eerst een \block{Label} vanuit het \menuitem{Palette} naar de \menuitem{Viewer}. Componenten worden automatisch uitgelijnd, het \block{label} komt daardoor linksboven te staan. Pas nu de tekst van het zojuist aangemaakte \block{Label} aan in het \menuitem{Properties} paneel naar `Toets 1'. Om onze applicatie overzichtelijk te houden pas je ook de naam van het component aan. Hiervoor selecteer je het label in het \menuitem{Components} paneel en gebruik je de knop \menuitem{Rename} om het label te hernoemen naar `Toets1Label'.
+Nu je een idee hebt van de interface kunnen we deze gaan gebruiken. Je begint eenvoudig met het toevoegen van enkele \block{labels}, \block{TextBoxen} en een \block{knop}. \reminder{\lefthand}{Een label gebruik je om een stukje tekst weer te geven.}\marginfig{screenshots/SchrandereScholier_label}{Label}Sleep hiervoor eerst een \block{Label} vanuit het \menuitem{Palette} naar de \menuitem{Viewer}. Componenten worden automatisch uitgelijnd, het \block{label} komt daardoor linksboven te staan. Pas nu de tekst van het zojuist aangemaakte \block{Label} aan in het \menuitem{Properties} paneel naar `Toets 1'. Om onze applicatie overzichtelijk te houden pas je ook de naam van het component aan. Hiervoor selecteer je het label in het \menuitem{Components} paneel en gebruik je de knop \menuitem{Rename} om het label te hernoemen naar `Toets1Label'.
 \reminder{\lefthand}{Geef componenten altijd een duidelijke naam, dit maakt het programmeren makkelijker!}
 Om te zorgen dat er ook cijfers ingevoerd kunnen worden voeg je een \block{TextBox} toe. 
-Sleep dus een \block{TextBox} naar de \menuitem{Viewer}. 
-Geef de \block{TextBox} de naam `Toets1'. Herhaal deze handelingen totdat je drie toetsen kunt invoeren.
+Sleep dus een \block{TextBox} naar de \menuitem{Viewer}. Geef de \block{TextBox} de naam `Toets1'. 
 
-Zodra de gebruiker de cijfers heeft ingevoerd zul je het cijfer moeten uitrekenen wat de gebruiker moet halen voor de volgende toets om een 8 gemiddeld te halen. De berekening doen we later, maar we voegen nu al wel een knop toe en twee labels om het resultaat weer te geven. Een knop voeg je toe door een Button vanuit het Palette naar de Viewer te slepen. Net als bij een label kun je een text opgeven in het Properties paneel, vul hier `Bereken' in. Geef de Button vervolgens de naam `Bereken'.
+\begin{opgave}
+    \opgVraag
+	Herhaal deze handelingen totdat je drie toetsen kunt invoeren.
+\end{opgave}
+
+Zodra de gebruiker de cijfers heeft ingevoerd zul je het cijfer moeten uitrekenen wat de gebruiker moet halen voor de volgende toets om een 8 gemiddeld te halen. De berekening doe je later, maar je voegt nu al wel een knop en twee labels toe om het resultaat weer te geven. Een knop voeg je toe door een \block{Button} vanuit het Palette naar de Viewer te slepen. Net als bij een label kun je een text opgeven in het \menuitem{Properties} paneel, vul hier `Bereken' in. Geef de \block{Button} vervolgens de naam `Bereken'.
 
 \begin{opgave}
     \opgVraag
@@ -27,30 +31,30 @@ Maak nu de gebruikersinterface verder af, zodat deze er hetzelfde uit ziet als i
 \end{opgave}
 
 \runOpTelefoon{}
-Je hebt nu de gebruikersinterface gemaakt, je kunt de applicatie nu dus al uitproberen op je telefoon of in de emulator! Je zult zien dat je al cijfers kunt invoeren, er gebeurt echter nog niks als je op de knop drukt. Daar gaan we nu iets aan doen!
+Je hebt nu de gebruikersinterface gemaakt, je kunt de applicatie nu dus al uitproberen op je telefoon of in de emulator! Je zult zien dat je al cijfers kunt invoeren, er gebeurt echter nog niks als je op de knop drukt. Daar ga je nu iets aan doen!
 
 \section{Rekenen}
-We gaan nu zorgen dat de applicatie daadwerkelijk kan rekenen. Hiervoor moeten we programmeren en dit doen we in de Blocks Editor. Deze open je via de knop Open the Blocks Editor rechtsboven aan. \reminder{\lefthand}{Een uitgebreidere uitleg vind je in hoofdstuk \ref{chap:ontwikkelomgeving}} Het scherm is nog helemaal leeg. Aan de linker kant staan de verschillende ingebouwde codeblokken, opgedeeld in verschillende categorie\"en, die je kunt gebruiken. \marginfig{screenshots/SchrandereScholier_my_blocks}{My Blocks van de Schrandere Scholier}Naast de ingebouwde codeblocks zijn er ook blocks speciaal voor jouw applicatie, deze vind je onder My Blocks. Voor elk component dat je hebt aangemaakt in de gebruikersinterface kun je hier codeblocks vinden.
+Je gaat nu zorgen dat de applicatie daadwerkelijk kan rekenen. Hiervoor moet je programmeren en dit doe je in de \menuitem{Blocks Editor}. Deze open je via de knop \menuitem{Open the Blocks Editor} rechtsboven aan. \reminder{\lefthand}{Een uitgebreidere uitleg vind je in hoofdstuk \ref{chap:ontwikkelomgeving}} Het scherm is nog helemaal leeg. Aan de linker kant staan de verschillende ingebouwde codeblokken, opgedeeld in verschillende categorie\"en, die je kunt gebruiken. \marginfig{screenshots/SchrandereScholier_my_blocks}{My Blocks van de Schrandere Scholier}Naast de ingebouwde codeblocks zijn er ook blocks speciaal voor jouw applicatie, deze vind je onder \menuitem{My Blocks}. Voor elk component dat je hebt aangemaakt in de gebruikersinterface kun je hier codeblocks vinden.
 
-We willen dat er gerekend gaat worden zodra er op de knop Bereken geklikt wordt. Hier is een speciaal block voor genaamd \block{Bereken.Click}. Je gebruikt dit block door eerst op Bereken te klikken en vervolgens \block{Bereken.Click} naar rechts te slepen. Alle codeblocks die je in dit block hangt worden uitgevoerd als er op de knop geklikt wordt.
+Je wilt dat er gerekend gaat worden zodra er op de knop Bereken geklikt wordt. Hier is een speciaal block voor, genaamd \block{Bereken.Click}. Je gebruikt dit block door eerst op Bereken te klikken en vervolgens \block{Bereken.Click} naar rechts te slepen. Alle codeblocks die je in dit block hangt worden uitgevoerd als er op de knop geklikt wordt.
 
-We beginnen met het verzamelen van de gegevens waarmee we straks kunnen rekenen. De cijfers moeten we uitlezen uit de TextBoxen, ook hiervoor staan er blokken klaar onder My Blocks. Het block \block{Toets1.Text} geeft je de inhoud van Toets1 terug. Sleep deze naar rechts om het te gebruiken. \reminder{\lefthand}{Blocks in App Inventor passen enkel op elkaar als de aansluitingen compatibel zijn. Dit is net als bij puzzelstukjes.}Zoals je waarschijnlijk ziet kun je nog niks met dit blok, de aansluiting komt namelijk niet overeen met de beschikbare aansluiting van \block{Bereken.Click}. We hebben dus nog andere blocks nodig.
+Je begint met het verzamelen van de gegevens waarmee je straks kunt rekenen. De cijfers moet je uitlezen uit de \block{TextBoxen}, ook hiervoor staan er blokken klaar onder \menuitem{My Blocks}. Het block \block{Toets1.Text} geeft je de inhoud van Toets1 terug. Sleep deze naar rechts om het te gebruiken. \reminder{\lefthand}{Blocks in App Inventor passen enkel op elkaar als de aansluitingen compatibel zijn. Dit is net als bij puzzelstukjes.}Zoals je waarschijnlijk ziet kun je nog niks met dit blok, de aansluiting komt namelijk niet overeen met de beschikbare aansluiting van \block{Bereken.Click}. Je hebt dus nog andere blocks nodig.
 
-We willen straks gaan rekenen, een logische plek om naar een passend block te zoeken is dus de categorie \menuitem{Math}. Sleep bijvoorbeeld het optel block naar rechts. Je zult zien dat je hier \block{Toets1.Text} in kunt hangen. Niet al deze blocks hebben dezelfde aansluiting. Hoe komt dit? Deze aansluiting betekent dat het block een bepaalde waarde (bijvoorbeeld een tekst of getal, maar ook de uitkomst van een som) vertegenwoordigt, dit noemen we een \emph{expressie}. In \block{Bereken.Click} passen enkel blocks die een actie vertegenwoordigen, dit wordt ook wel een \emph{statement} genoemd. 
+Je wilt straks kunnen rekenen, een logische plek om naar een passend block te zoeken is dus de categorie \menuitem{Math}. Sleep bijvoorbeeld het optel block naar rechts. Je zult zien dat je hier \block{Toets1.Text} in kunt hangen. Niet al deze blocks hebben dezelfde aansluiting. Hoe komt dit? Deze aansluiting betekent dat het block een bepaalde waarde (bijvoorbeeld een tekst of getal, maar ook de uitkomst van een som) vertegenwoordigt, dit noem je een \emph{expressie}. In \block{Bereken.Click} passen enkel blocks die een actie vertegenwoordigen, dit wordt ook wel een \emph{statement} genoemd. 
 
 \begin{opgave}
     \opgVraag
-Na het rekenen zullen we de uitkomst in TeBehalen moeten plaatsen. Zoek nu een block op waarmee je de uitkomst van een expressie in TeBehalen kunt zetten. Voeg dit block toe aan \block{Bereken.Click}. De expressie die weergegeven moet worden is de som van Toets1 en Toets2. 
+Na het rekenen zul je de uitkomst in \block{TeBehalen} moeten plaatsen. Zoek nu een block op waarmee je de uitkomst van een expressie in \block{TeBehalen} kunt zetten. Voeg dit block toe aan \block{Bereken.Click}. De expressie die weergegeven moet worden is de som van \block{Toets1} en \block{Toets2}. 
     \opgUitwerking
     Het programma zou er nu uit moeten zien zoals in figuur \ref{screenshots/SchrandereScholier_bereken_click}.
     \inlinefig{screenshots/SchrandereScholier_bereken_click}{Uitwerking}
 \end{opgave}
 
-\runOpTelefoon{} Voordat we verdergaan: probeer uit of het programma werkt zoals je verwacht. Als het werkt dan wordt het tijd om ons programma uit te breiden. Er vanuit gaande dat alle cijfers dezelfde weging hebben, hoe kunnen we dan het cijfer berekenen dat de gebruiker nodig heeft om een 8 te staan? De som van alle vier cijfers moet samen minimaal $8*4=32$ zijn. Het benodigde cijfer is dus gelijk aan 32 min het totaal van de al behaalde punten.
+\runOpTelefoon{} Voordat je verder gaat: probeer uit of het programma werkt zoals je verwacht. Als het werkt dan wordt het tijd om jouw programma uit te breiden. Er vanuit gaande dat alle cijfers dezelfde weging hebben, hoe kun je dan eenvoudig het cijfer berekenen dat de gebruiker nodig heeft om een 8 te staan? De som van alle vier cijfers moet samen minimaal $8*4=32$ zijn. Het benodigde cijfer is dus gelijk aan 32 min het totaal van de al behaalde punten. Iemand heeft bijvoorbeeld een $9$ en tweemaal een $7$ gehaald. Dit is in totaal $9+7+7=23$. Het in dit geval te behalen cijfer is dus $32-23=9$.
  
  \begin{opgave}
     \opgVraag
-Implementeer de bovenstaande berekening en zet het antwoord in TeBehalen. Je hebt hiervoor, naast de al bekende blocks, ook het aftrek-block nodig en een constant getal. Een constant getal geef je aan met het block in figuur \marginfig{screenshots/SchrandereScholier_constant_getal}{Constant getal} \ref{screenshots/SchrandereScholier_constant_getal}. 
+Implementeer de bovenstaande berekening en zet het antwoord in \block{TeBehalen}. Je hebt hiervoor, naast de al bekende blocks, ook het aftrek-block nodig en een constant getal. Een constant getal geef je aan met het block in figuur \marginfig{screenshots/SchrandereScholier_constant_getal}{Constant getal} \ref{screenshots/SchrandereScholier_constant_getal}. 
 
 Je moet verschillende blocks `in elkaar hangen', dit wordt \emph{nesten} genoemd. Bij het uitrekenen kijkt de computer welke gegevens hij nodig heeft om het block uit te kunnen rekenen, deze gegevens zal hij eerst opzoeken of berekenen. Zodra de computer alle gegevens heeft om een block uit te rekenen doet hij dit. In het voorbeeld van een optel-block zal hij dus eerst bepalen welke twee getallen opgeteld moeten worden, om deze vervolgens op te tellen en door te geven.
     \opgUitwerking
@@ -59,49 +63,55 @@ Je moet verschillende blocks `in elkaar hangen', dit wordt \emph{nesten} genoemd
 \end{opgave}
 
 \runOpTelefoon{}
-Als je dit programma uitprobeert met een aantal combinaties van cijfers zullen je merken dat het nog niet optimaal werkt. Maar het werkt, en dat met maar enkele blocks! In de volgende paragraaf zullen we deze applicaties verder gaan uitwerken. Je zult daarbij meer zelfstandig aan de slag gaan met \ai.
+Als je dit programma uitprobeert met een aantal combinaties van cijfers zullen je merken dat het nog niet optimaal werkt. Maar het werkt, en dat met maar enkele blocks! In de volgende paragraaf zul je deze applicaties verder gaan uitwerken. Je zult daarbij meer zelfstandig aan de slag gaan met \ai.
 
 \section{Verbeteren}
-De eerste verbetering die we zullen doorvoeren is het toevoegen van meer cijfers, waarschijnlijk heb je geen enkel vak waarbij je maar vier toetsen krijgt. 
+De eerste verbetering die je gaat doorvoeren is het toevoegen van meer cijfers, waarschijnlijk heb je geen enkel vak waarbij je maar vier toetsen krijgt. 
 
  \begin{opgave}
     \opgVraag
 Zorg ervoor dat er vier cijfers kunnen worden ingevoerd, waarna het vijfde cijfer wordt berekend. Noteer op welke plaatsen je een aanpassing hebt moeten maken.
 \end{opgave}
 
-Als het goed is weet je nu precies welke wijzigingen je moet maken om een nieuwe toets te voegen. Zouden we dit kunnen automatiseren? Dan kunnen we de gebruiker zelf toetsen laten toevoegen. Uiteraard is dit mogelijk! De makkelijkste oplossing zou zijn om de gebruiker nieuwe velden te laten toe voegen, dit is echter niet mogelijk in \ai. Om dit probleem toch te kunnen oplossen heeft \ai de mogelijkheid van lijsten. We kunnen het probleem nu implementeren door gebruik te maken van \'e\'en TextBox om cijfers toe te voegen aan de lijst. Deze lijst kan vervolgens worden weergegeven en gebruikt om te rekenen. Dit gaan we in deze sectie implementeren.
+Als het goed is weet je nu precies welke wijzigingen je moet maken om een nieuwe toets te voegen. Zou je dit kunnen automatiseren? Dan kun je de gebruiker zelf toetsen laten toevoegen. Uiteraard is dit mogelijk! De makkelijkste oplossing zou zijn om de gebruiker nieuwe velden te laten toe voegen, dit is echter niet mogelijk in \ai. Om dit probleem toch te kunnen oplossen heeft \ai de mogelijkheid van lijsten. Je kunt het probleem nu implementeren door gebruik te maken van \'e\'en \block{TextBox} om cijfers toe te voegen aan de lijst. Deze lijst kan vervolgens worden weergegeven en gebruikt om te rekenen. Dit ga je in deze sectie implementeren.
 
-Allereerst maken we in de Blocks Editor de lijst aan. \marginfig[-.5in]{screenshots/SchrandereScholier_makeAList}{make a list block}Je doet dit door het \block{make a list} block (uit het lists palette) het werkblad op te slepen. Zoals je ziet kun je in dit block items toevoegen, dit kan bijvoorbeeld een \block{number} zijn. Een voorbeeld zie je in figuur \ref{screenshots/SchrandereScholier_makeAList}.
+Allereerst maak je in de \menuitem{Blocks Editor} de lijst aan. \marginfig[-.5in]{screenshots/SchrandereScholier_makeAList}{make a list block}Je doet dit door het \block{make a list} block (uit het \menuitem{Lists} palette) het werkblad op te slepen. Zoals je ziet kun je in dit block items toevoegen, dit kan bijvoorbeeld een \block{number} zijn. Een voorbeeld zie je in figuur \ref{screenshots/SchrandereScholier_makeAList}.
 
-\marginfig{screenshots/SchrandereScholier_variabeleLijst}{De lijst in een variabele}Om de lijst te kunnen gebruiken in de rest van de code plaatsen we de lijst in een \emph{variabele}. Hiermee geven we de lijst een naam zodat we hier vanuit andere blocks naar kunnen verwijzen. Je maakt een variabele aan via het \block{def} block in de categorie \menuitem{definitions} zoals je kunt zien in figuur \ref{screenshots/SchrandereScholier_variabeleLijst}. 
+\marginfig{screenshots/SchrandereScholier_variabeleLijst}{De lijst in een variabele}Om de lijst te kunnen gebruiken in de rest van de code plaats je de lijst in een \emph{variabele}. Hiermee geef je de lijst een naam zodat je hier vanuit andere blocks naar kunnen verwijzen. Je maakt een variabele aan via het \block{def} block in de categorie \menuitem{definitions} zoals je kunt zien in figuur \ref{screenshots/SchrandereScholier_variabeleLijst}. 
 
  \begin{opgave}
     \opgVraag
-De interface kunnen we nu aanpassen. Maak de interface zoals is weergegeven in figuur \ref{screenshots/SchrandereScholier_ontwerp2}. Er staan twee labels in het ontwerp waarvan we later de tekst gaan uitpassen vanuit de Blocks editor. Denk ook nu aan een duidelijke naamgeving van de componenten.
+De interface kun je nu aanpassen. Maak de interface zoals is weergegeven in figuur \ref{screenshots/SchrandereScholier_ontwerp2}. Er staan twee labels in het ontwerp waarvan je later de tekst gaat aanpassen vanuit de \menuitem{Blocks editor}. Denk ook nu aan een duidelijke naamgeving van de componenten.
 \inlinefig{screenshots/SchrandereScholier_ontwerp2}{Nieuwe gebruikersinterface}
 \end{opgave}
 
-Ga nu weer naar de Blocks editor. Als je de knop enkel hebt hernoemd heb je hier nog een block \block{Toevoegen.Click} staan. Indien dit niet het geval is voeg je deze toe vanuit \menuitem{My Blocks}. In deze procedure moeten we het nieuw ingevoerde cijfer toevoegen aan de lijst. Een item toevoegen aan de lijst kun je doen via \block{add items to list} in het \menuitem{Lists} palette. Dit block heeft twee blocks nodig als parameter, namelijk een list en een nieuw item. Bij list voeg je het \block{def} block toe welke je kunt vinden bij \menuitem{My definitions} binnen het \menuitem{My Blocks} palette, bij item voeg je een block \block{Cijfer.Text} toe. 
+Ga nu weer naar de \menuitem{Blocks editor}. Als je de knop enkel hebt hernoemd heb je hier nog een block \block{Toevoegen.Click} staan. Indien dit niet het geval is voeg je deze toe vanuit \menuitem{My Blocks}. In deze procedure moet je het nieuw ingevoerde cijfer toevoegen aan de lijst. Een item toevoegen aan de lijst kun je doen via \block{add items to list} in het \menuitem{Lists} palette. Dit block heeft twee blocks nodig als parameter, namelijk een list en een nieuw item. Bij list voeg je het \block{def} block toe welke je kunt vinden bij \menuitem{My definitions} binnen het \menuitem{My Blocks} palette, bij item voeg je een block \block{Cijfer.Text} toe. 
 
-Om nu de ingevoerde cijfers weer te geven op de daarvoor bedoelde plaats moeten we nieuw soort block gebruiken, de \block{foreach}. Deze \emph{loop} gaat alle items uit een list langs en voert voor elk van deze items een actie uit. In dit geval kunnen we dit gebruiken om de cijfers in de list allemaal onder elkaar te zetten. Hoe je dit doet zie je in figuur \ref{screenshots/SchrandereScholier_toevoegen_click}.
+Om nu de ingevoerde cijfers weer te geven op de daarvoor bedoelde plaats moet je een nieuw soort block gebruiken, de \block{foreach}. Deze \emph{loop} gaat alle items uit een list langs en voert voor elk van deze items een actie uit. In dit geval kun je dit gebruiken om de cijfers in de list allemaal onder elkaar te zetten. Hoe je dit doet zie je in figuur \ref{screenshots/SchrandereScholier_toevoegen_click}.
 
+\reminder[.2in]{\lefthand}{Weet je wat de \textbackslash n betekent in deze implementatie?}
  \begin{opgave}
     \opgVraag
 Implementeer het \block{Toevoegen.Click} block zoals is aangegeven in figuur \ref{screenshots/SchrandereScholier_toevoegen_click} en probeer te doorgronden hoe dit werkt.
-\reminder{\lefthand}{Weet je wat de \textbackslash n betekent in deze implementatie?}
 \inlinefig{screenshots/SchrandereScholier_toevoegen_click}{Implementatie Toevoegen.Click}
 \end{opgave}
 
 \runOpTelefoon{} Probeer de app nu uit op je telefoon of in de simulator en controleer of je de code goed hebt begrepen.
 
 \section{Weer rekenen}
-Onze oude methode om het benodigde cijfer te berekenen werkt nu niet meer, daar moeten we iets aan doen. Omdat we alle cijfers in een lijst hebben staan moeten hier weer een loop block voor gebruiken. Om te voorkomen dat onze code onoverzichtelijk wordt zullen we de berekening in een aparte \emph{procedure} laten plaatsvinden. Een procedure is een groepje statements die worden uitgevoerd als je de procedure aanroept. Op deze manier kun je statements die bij elkaar horen groeperen. Een procedure kan ook een resultaat teruggeven.
+De oude methode om het benodigde cijfer te berekenen werkt nu niet meer, daar moet je iets aan doen. Omdat alle cijfers in een lijst staan moet je hier weer een \block{loop} block voor gebruiken. Om te voorkomen dat de code onoverzichtelijk wordt zul je de berekening in een aparte \emph{procedure} laten plaatsvinden. 
 
-Een nieuwe procedure kunnen we aanmaken door het \marginfig{screenshots/SchrandereScholier_procedureWithResult}{procedureWithResult block}\block{procedureWithResult} block, te vinden in het \menuitem{Definition} palette, naar het canvas te slepen. Je kunt in op drie plekken blocks aanhangen. Allereerst bij `arg', hier kun je een argument meegeven aan de procedure, dit zullen we hier nog niet gebruiken. Bij `do' voeg je de acties toe die moeten gebeuren. Bij return geef je een waarde die wordt teruggegeven nadat deze procedure is uitgevoerd, in ons geval zal dit het te behalen cijfer zijn.
+\begin{derivation}{Procedures met resultaat}
+Op pagina \pageref{der:procedures} staat uitgelegd wat een procedure is. In het kort is een procedure een groepje statements die worden uitgevoerd als je de procedure aanroept. Op deze manier kun je statements die bij elkaar horen groeperen. Een procedure kan ook een resultaat teruggeven. Dit pas je toe om bijvoorbeeld een berekening die je meerdere malen uitvoert maar eenmalig te hoeven op te schrijven. 
 
-In het `do' gedeelte van de procedure kunnen we hetzelfde \block{foreach} block gebruiken als in \block{Toevoegen.Click}. De naam van de variabele zullen we wel aan moeten passen, aangezien elke naam maar eenmaal gebruikt mag worden. 
+Ook kan het handig zijn om een procedure te gebruiken om je code leesbaarder te maken. Een lang stuk code kun je zo opdelen in kleine, begrijpelijke stukjes code. Zorg er altijd voor dat je de procedure een betekenisvolle naam geeft.
+\end{derivation}
 
-We beginnen met het optellen van alle resultaten. Dit kunnen we doen op een vergelijkbare manier als het aan elkaar plakken van de teksten, zoals we gedaan hebben in figuur \ref{screenshots/SchrandereScholier_toevoegen_click}. We gebruiken nu echter hetzelfde \block{+} block als we eerder hebben gebruikt. \marginfig{screenshots/SchrandereScholier_som}{som variabele}Het tussenresultaat sla je op in een nieuw aan te maken variabele zoals is te zien in figuur \ref{screenshots/SchrandereScholier_som}. Ook voor het eindresultaat maak je een variabele aan genaamd \block{teBehalen}. Gebruikmakend van de som kun je nu als volgt het te behalen cijfer berekenen: \\$(aantalOpgegevenCijfers+1) * 8 - som$ \\Het resultaat van deze berekening moet je teruggeven door het block \block{teBehalen} aan `result' te hangen.
+Een nieuwe procedure met resultaat kun je aanmaken door het \marginfig{screenshots/SchrandereScholier_procedureWithResult}{procedureWithResult block}\block{procedureWithResult} block, te vinden in het \menuitem{Definition} palette, naar het canvas te slepen. Je kunt er op drie plekken blocks aanhangen. Allereerst bij `arg', hier kun je een argument meegeven aan de procedure, dit zul je hier nog niet gebruiken. Bij `do' voeg je de acties toe die moeten gebeuren. Bij return geef je een waarde die wordt teruggegeven nadat deze procedure is uitgevoerd, in ons geval zal dit het te behalen cijfer zijn.
+
+In het `do' gedeelte van de procedure kun je hetzelfde \block{foreach} block gebruiken als in \block{Toevoegen.Click}. De naam van de variabele zul je wel aan moeten passen, aangezien elke naam maar eenmaal gebruikt mag worden. 
+
+Je begint met het optellen van alle resultaten. Dit kun je doen op een vergelijkbare manier als het aan elkaar plakken van de teksten, zoals je dat gedaan hebt in figuur \ref{screenshots/SchrandereScholier_toevoegen_click}. Je gebruikt nu echter hetzelfde \block{+} block als je eerder gebruikt hebt. \marginfig{screenshots/SchrandereScholier_som}{som variabele}Het tussenresultaat sla je op in een nieuw aan te maken variabele zoals is te zien in figuur \ref{screenshots/SchrandereScholier_som}. Ook voor het eindresultaat maak je een variabele aan genaamd \block{teBehalen}. Gebruikmakend van de som kun je nu als volgt het te behalen cijfer berekenen: \\$(aantalOpgegevenCijfers+1) * 8 - som$ \\Het resultaat van deze berekening moet je teruggeven door het block \block{teBehalen} aan `result' te hangen.
 
 \needspace{4\baselineskip}
  \begin{opgave}
@@ -116,21 +126,56 @@ Implementeer de procedure voor het berekenen van het te behalen cijfer volgens d
     \caption{\label{screenshots/SchrandereScholier_berekenTeBehalen} Implementatie van berekenTeBehalen}
 \end{figure}
 
-De laatste stap is nu een klein stukje toevoegen zodat het te behalen cijfer wordt weergegeven. \marginfig{screenshots/SchrandereScholier_procedureAanroep}{Aanroepen van de bereken procedure}Dit doe je met de blocks in figuur \ref{screenshots/SchrandereScholier_procedureAanroep}. \runOpTelefoon{} Voeg deze blocks toe aan \block{Toevoegen.Click} en test de app uit!
+De laatste stap is nu een klein stukje toevoegen zodat het te behalen cijfer wordt weergegeven. \marginfig{screenshots/SchrandereScholier_procedureAanroep}{Aanroepen van de bereken procedure}Dit doe je met de blocks in figuur \ref{screenshots/SchrandereScholier_procedureAanroep}. \runOpTelefoon{} 
+
+\begin{opgave}
+    \opgVraag
+Voeg de blocks om het te behalen cijfer weer te geven toe aan \block{Toevoegen.Click} en test de app uit!
+\end{opgave}
 
 \begin{derivation}{Tip}
-Wellicht valt je op dat er ook cijfers in de lijst staan die je niet via de app hebt ingevoerd? Als dit zo is dat heb je in de Blocks Editor nog invulling staan bij het aanmaken van de lijst. Haal deze weg en probeer het opnieuw!
+Wellicht valt je op dat er ook cijfers in de lijst staan die je niet via de app hebt ingevoerd? Als dit zo is dan heb je in de Blocks Editor nog invulling staan bij het aanmaken van de lijst. Haal deze weg en probeer het opnieuw!
 \end{derivation}
 
-\section{Facultatieve uitbreidingen}
+\begin{opgave}
+    \opgVraag
+De implementatie van de procedure \block{berekenTeBehalen} is al behoorlijk ingewikkeld! Probeer de code leesbaarder te maken door de procedure op te delen in enkele korte procedures. Denk steeds goed na over welke statements je opneemt en welke naam je aan de procedure geeft.
+\end{opgave}
+
+\section{Bonus opgaven}
 Je hebt ondertussen waarschijnlijk al een hoop uitbreidingen op deze app bedacht. Voeg een aantal van de onderstaande functies toe, of bedenk een eigen functie in overleg met jouw docent.
 
-\begin{itemize}
-  \item Een 8 gemiddeld, Waarom geen 9? Laat de gebruiker zelf kiezen welk cijfer hij gemiddeld wil staan.
-  \item Niet alle toetsen tellen even zwaar, zorg ervoor dat de gebruiker het gewicht van een toets kan bepalen.
-  \item Geef de app een mooier uiterlijk.
-  \item Zorg ervoor dat de cijfers worden bewaard bij het opnieuw opstarten van de app
-  \item Maak de app geschikt voor meerdere vakken.
-  \item Maak het onmogelijk om foutieve cijfers in te voeren.
-  \item Jouw idee\dots
-\end{itemize}
+\begin{opgave}
+    \opgVraag
+    Een 8 gemiddeld, waarom geen 9? Laat de gebruiker zelf kiezen welk cijfer hij gemiddeld wil staan.
+\end{opgave}
+
+\begin{opgave}
+    \opgVraag
+    Niet alle toetsen tellen even zwaar, zorg ervoor dat de gebruiker het gewicht van een toets kan bepalen.
+\end{opgave}
+
+\begin{opgave}
+    \opgVraag
+    De app ziet er op dit moment saai uit, zorg ervoor dat de app er aantrekkelijk om te gebruiken uitziet.
+\end{opgave}
+
+\begin{opgave}
+    \opgVraag
+    Elke keer als je de app opnieuw opstart ben je je cijfers kwijt. Zou het niet mooi zijn als de cijfers bewaard blijven? Zorg ervoor dat de cijfers worden bewaard bij het opnieuw opstarten van de app.
+\end{opgave}
+
+\begin{opgave}
+    \opgVraag
+    Je kunt nu voor \'e\'en vak tegelijk cijfers invoeren, maak de app geschikt voor meerdere vakken.
+\end{opgave}
+
+\begin{opgave}
+    \opgVraag
+    Heb je geprobeerd om het cijfer $-3$ in te voeren, of het cijfer $C$? Je zult zien dat dit kan! Maak het onmogelijk om foutieve cijfers in te voeren.
+\end{opgave}
+
+\begin{opgave}
+    \opgVraag
+    Heb je zelf een voorstel tot verbetering? Overleg dit met je docent, en implementeer het!
+\end{opgave}
