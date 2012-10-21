@@ -27,14 +27,16 @@ Zodra de gebruiker de cijfers heeft ingevoerd zul je het cijfer moeten uitrekene
 \begin{opgave}
     \opgVraag
 Maak nu de gebruikersinterface verder af, zodat deze er hetzelfde uit ziet als in figuur \ref{screenshots/SchrandereScholier_ontwerp1}.
-\inlinefig{screenshots/SchrandereScholier_ontwerp1}{Gebruikersinterface van de Schrandere Scholier}
 \end{opgave}
+
+\inlinefig{screenshots/SchrandereScholier_ontwerp1}{Gebruikersinterface van de Schrandere Scholier}
 
 \runOpTelefoon{}
 Je hebt nu de gebruikersinterface gemaakt, je kunt de applicatie nu dus al uitproberen op je telefoon of in de emulator! Je zult zien dat je al cijfers kunt invoeren, er gebeurt echter nog niks als je op de knop drukt. Daar ga je nu iets aan doen!
 
 \section{Rekenen}
-Je gaat nu zorgen dat de applicatie daadwerkelijk kan rekenen. Hiervoor moet je programmeren en dit doe je in de \menuitem{Blocks Editor}. Deze open je via de knop \menuitem{Open the Blocks Editor} rechtsboven aan. \reminder{\lefthand}{Een uitgebreidere uitleg vind je in hoofdstuk \ref{chap:ontwikkelomgeving}} Het scherm is nog helemaal leeg. Aan de linker kant staan de verschillende ingebouwde codeblokken, opgedeeld in verschillende categorie\"en, die je kunt gebruiken. \marginfig{screenshots/SchrandereScholier_my_blocks}{My Blocks van de Schrandere Scholier}Naast de ingebouwde codeblocks zijn er ook blocks speciaal voor jouw applicatie, deze vind je onder \menuitem{My Blocks}. Voor elk component dat je hebt aangemaakt in de gebruikersinterface kun je hier codeblocks vinden.
+\reminder[.2in]{\lefthand}{Een uitgebreidere uitleg vind je in hoofdstuk \ref{chap:ontwikkelomgeving}}
+Je gaat nu zorgen dat de applicatie daadwerkelijk kan rekenen. Hiervoor moet je programmeren en dit doe je in de \menuitem{Blocks Editor}. Deze open je via de knop \menuitem{Open the Blocks Editor} rechtsboven aan. Het scherm is nog helemaal leeg. Aan de linker kant staan de verschillende ingebouwde codeblokken, opgedeeld in verschillende categorie\"en, die je kunt gebruiken. \marginfig{screenshots/SchrandereScholier_my_blocks}{My Blocks van de Schrandere Scholier}Naast de ingebouwde codeblocks zijn er ook blocks speciaal voor jouw applicatie, deze vind je onder \menuitem{My Blocks}. Voor elk component dat je hebt aangemaakt in de gebruikersinterface kun je hier codeblocks vinden.
 
 Je wilt dat er gerekend gaat worden zodra er op de knop Bereken geklikt wordt. Hier is een speciaal block voor, genaamd \block{Bereken.Click}. Je gebruikt dit block door eerst op Bereken te klikken en vervolgens \block{Bereken.Click} naar rechts te slepen. Alle codeblocks die je in dit block hangt worden uitgevoerd als er op de knop geklikt wordt.
 
@@ -82,8 +84,8 @@ Allereerst maak je in de \menuitem{Blocks Editor} de lijst aan. \marginfig[-.5in
  \begin{opgave}
     \opgVraag
 De interface kun je nu aanpassen. Maak de interface zoals is weergegeven in figuur \ref{screenshots/SchrandereScholier_ontwerp2}. Er staan twee labels in het ontwerp waarvan je later de tekst gaat aanpassen vanuit de \menuitem{Blocks editor}. Denk ook nu aan een duidelijke naamgeving van de componenten.
-\inlinefig{screenshots/SchrandereScholier_ontwerp2}{Nieuwe gebruikersinterface}
 \end{opgave}
+\inlinefig{screenshots/SchrandereScholier_ontwerp2}{Nieuwe gebruikersinterface}
 
 Ga nu weer naar de \menuitem{Blocks editor}. Als je de knop enkel hebt hernoemd heb je hier nog een block \block{Toevoegen.Click} staan. Indien dit niet het geval is voeg je deze toe vanuit \menuitem{My Blocks}. In deze procedure moet je het nieuw ingevoerde cijfer toevoegen aan de lijst. Een item toevoegen aan de lijst kun je doen via \block{add items to list} in het \menuitem{Lists} palette. Dit block heeft twee blocks nodig als parameter, namelijk een list en een nieuw item. Bij list voeg je het \block{def} block toe welke je kunt vinden bij \menuitem{My definitions} binnen het \menuitem{My Blocks} palette, bij item voeg je een block \block{Cijfer.Text} toe. 
 
@@ -93,8 +95,8 @@ Om nu de ingevoerde cijfers weer te geven op de daarvoor bedoelde plaats moet je
  \begin{opgave}
     \opgVraag
 Implementeer het \block{Toevoegen.Click} block zoals is aangegeven in figuur \ref{screenshots/SchrandereScholier_toevoegen_click} en probeer te doorgronden hoe dit werkt.
-\inlinefig{screenshots/SchrandereScholier_toevoegen_click}{Implementatie Toevoegen.Click}
 \end{opgave}
+\inlinefig{screenshots/SchrandereScholier_toevoegen_click}{Implementatie Toevoegen.Click}
 
 \runOpTelefoon{} Probeer de app nu uit op je telefoon of in de simulator en controleer of je de code goed hebt begrepen.
 
@@ -111,7 +113,7 @@ Een nieuwe procedure met resultaat kun je aanmaken door het \marginfig{screensho
 
 In het `do' gedeelte van de procedure kun je hetzelfde \block{foreach} block gebruiken als in \block{Toevoegen.Click}. De naam van de variabele zul je wel aan moeten passen, aangezien elke naam maar eenmaal gebruikt mag worden. 
 
-Je begint met het optellen van alle resultaten. Dit kun je doen op een vergelijkbare manier als het aan elkaar plakken van de teksten, zoals je dat gedaan hebt in figuur \ref{screenshots/SchrandereScholier_toevoegen_click}. Je gebruikt nu echter hetzelfde \block{+} block als je eerder gebruikt hebt. \marginfig{screenshots/SchrandereScholier_som}{som variabele}Het tussenresultaat sla je op in een nieuw aan te maken variabele zoals is te zien in figuur \ref{screenshots/SchrandereScholier_som}. Ook voor het eindresultaat maak je een variabele aan genaamd \block{teBehalen}. Gebruikmakend van de som kun je nu als volgt het te behalen cijfer berekenen: \\$(aantalOpgegevenCijfers+1) * 8 - som$ \\Het resultaat van deze berekening moet je teruggeven door het block \block{teBehalen} aan `result' te hangen.
+Je begint met het optellen van alle resultaten. Dit kun je doen op een vergelijkbare manier als het aan elkaar plakken van de teksten, zoals je dat gedaan hebt in figuur \ref{screenshots/SchrandereScholier_toevoegen_click}. Je gebruikt nu echter hetzelfde \block{+} block als je eerder gebruikt hebt. \marginfig[-.2in]{screenshots/SchrandereScholier_som}{som variabele}Het tussenresultaat sla je op in een nieuw aan te maken variabele zoals is te zien in figuur \ref{screenshots/SchrandereScholier_som}. Ook voor het eindresultaat maak je een variabele aan genaamd \block{teBehalen}. Gebruikmakend van de som kun je nu als volgt het te behalen cijfer berekenen: \\$(aantalOpgegevenCijfers+1) * 8 - som$ \\Het resultaat van deze berekening moet je teruggeven door het block \block{teBehalen} aan `result' te hangen.
 
 \needspace{4\baselineskip}
  \begin{opgave}
@@ -126,7 +128,8 @@ Implementeer de procedure voor het berekenen van het te behalen cijfer volgens d
     \caption{\label{screenshots/SchrandereScholier_berekenTeBehalen} Implementatie van berekenTeBehalen}
 \end{figure}
 
-De laatste stap is nu een klein stukje toevoegen zodat het te behalen cijfer wordt weergegeven. \marginfig{screenshots/SchrandereScholier_procedureAanroep}{Aanroepen van de bereken procedure}Dit doe je met de blocks in figuur \ref{screenshots/SchrandereScholier_procedureAanroep}. \runOpTelefoon{} 
+\marginfig[-.2in]{screenshots/SchrandereScholier_procedureAanroep}{Aanroepen van de bereken procedure}
+De laatste stap is nu een klein stukje toevoegen zodat het te behalen cijfer wordt weergegeven. Dit doe je met de blocks in figuur \ref{screenshots/SchrandereScholier_procedureAanroep}. \runOpTelefoon{} 
 
 \begin{opgave}
     \opgVraag
