@@ -302,9 +302,9 @@
 
 \newenvironment{derivation}[1]
     {\cbcolor{DeriveColor}\par \vspace{10pt}
-     \cbstart
+     \cbstart \vspace{-8pt} 
     \begin{enumerate}\item[]
-     \noindent\textbf{#1}
+     \noindent\textbf{#1} \nopagebreak
      \par\vspace{5pt}\small\noindent
     } {\end{enumerate} \cbend\par \vspace{10pt}}
 
