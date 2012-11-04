@@ -11,7 +11,7 @@ Als eerste wordt het \bestand{AppInventorForAndroidCodeblocks.jnlp} bestand geop
 \inlinefig{screenshots/MollenMeppen_BlocksEditor}{Blocks Editor van MollenMeppen}
 
 \begin{derivation}{Let op}
-De \menuitem{Blocks Editor} is een aparte applicatie die niet in je webbrowser draait. Je ziet in je taakbalk dan ook een \emph{App Inventor for Android Blocks Editor: MollenMeppen - Screen 1} pictogram. Je kunt met `ALT-TAB' makkelijk wisselen tussen het \menuitem{Design} scherm en de \menuitem{Blocks Editor}.
+De \menuitem{Blocks Editor} is een aparte applicatie die niet in je webbrowser draait. Je ziet in je taakbalk dan ook een \emph{App Inventor for Android Blocks Editor: MollenMeppen - Screen1} pictogram. Je kunt met `ALT-TAB' makkelijk wisselen tussen het \menuitem{Design} scherm en de \menuitem{Blocks Editor}.
 \end{derivation}
 
 \marginfig[-1in]{screenshots/MollenMeppen_emulator_unlock}{De emulator}
@@ -112,7 +112,7 @@ Een timer kun je vinden via de \menuitem{Clock} component in het \menuitem{Basic
 \end{opgave}
 
 Nadat je de \menuitem{Clock} component hebt toegevoegd kun je de timer programmeren. Hiervoor moet je in de \menuitem{Blocks Editor} zijn. Je weet intussen hoe je die moet openen of je hebt hem nog open staan. 
-Onder de \menuitem{My Blocks} tab staat nu een \menuitem{Clock 1} link omdat je de \menuitem{Clock} component hebt toegevoegd, zie figuur \ref{screenshots/MollenMeppen_BlocksEditor_Clock1}. Klik op de link en je ziet bovenaan een \block{Clock1.Timer} block.
+Onder de \menuitem{My Blocks} tab staat nu een \menuitem{Clock1} link omdat je de \menuitem{Clock} component hebt toegevoegd, zie figuur \ref{screenshots/MollenMeppen_BlocksEditor_Clock1}. Klik op de link en je ziet bovenaan een \block{Clock1.Timer} block.
 
 \inlinefig{screenshots/MollenMeppen_BlocksEditor_Clock1}{Locatie van de \menuitem{My Blocks} | \menuitem{Clock1} link}
  
@@ -134,11 +134,17 @@ Als het goed is heb je nu voordeel gehad van de procedure die we al voor je gema
 
 
 \section{Tellen van het aantal maal dat je mis slaat}
-Naast het bijhouden hoe vaak een speler de mol raakt wil je ook graag bijhouden hoe vaak de speler mis slaat. In je \menuitem{Components} staat een \block{HorizontalArrangement1} die ervoor zorgt dat je componenten horizontaal in je scherm kunt rangschikken. De componenten erin (\block{Label1} en \block{Label2}) komen overeen met `aantal geraakt' en `0' in je \menuitem{Viewer}.
+Naast het bijhouden hoe vaak een speler de mol raakt wil je ook graag bijhouden hoe vaak de speler mis slaat. In je \menuitem{Components} staat een \block{HorizontalArrangementGeraakt} die ervoor zorgt dat je componenten horizontaal in je scherm kunt rangschikken. De componenten erin (\block{LabelGeraaktTekst} en \block{LabelGeraaktTeller}) komen overeen met `aantal geraakt' en `0' in je \menuitem{Viewer}.
 
+\begin{derivation}{Let op}
+Een label gebruik je om een stuk tekst weer te geven.
+Een TextBox gebruik je om de gebruiker iets in te laten voeren.
+\end{derivation}
+
+\reminder{\lefthand}{Hint: Op het moment dat je de mol raakt gaan er twee events af namelijk `CanvasMollenVeld.Touched' en `ImageSpriteMol.Touched'. Hoe kun je deze slim gebruiken om te bepalen wanneer je mis slaat?}
 \begin{opgave}
     \opgVraag
-	Breid de bestaande \block{HorizontalArrangement1} uit met de tekst `aantal gemist' en de bijbehorende teller. Breid bovendien je programma in de \menuitem{Blocks Editor} uit zodat het aantal keer dat de speler misslaat wordt bijgehouden. 
+	Breid de bestaande interface uit met een \block{HorizontalArrangement} dat daarin labels heeft voor `aantal gemist' en de bijbehorende teller. Breid bovendien je programma in de \menuitem{Blocks Editor} uit zodat het aantal keer dat de speler misslaat wordt bijgehouden. 
 \end{opgave}
 
 
