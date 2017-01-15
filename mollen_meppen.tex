@@ -115,10 +115,10 @@ Als je \emph{whack.mp3} hebt toegevoegd en je gaat naar de \menuitem{Blocks Edit
 \section{De mol op een timer laten bewegen}
 Op het moment is het zo dat de mol zich alleen verplaatst als je hem een mep verkoopt. Het is leuker als de mol af en toe uit zichzelf ergens anders opduikt. Om dit voor elkaar te krijgen ga je een zogenaamde \menuitem{timer} gebruiken.
  
+\marginfig{screenshots/MollenMeppen_design_clock1}{Locatie van de \menuitem{Clock} component in het palette}
 Een timer kun je vinden via de \menuitem{Clock} component in het \menuitem{Sensors} palette, zie figuur \ref{screenshots/MollenMeppen_design_clock1}. 
 Een component kun je in het \menuitem{Viewer} gedeelte van je ontwikkelomgeving slepen. Je ziet dat de component ook toegevoegd wordt in het \menuitem{Components} gedeelte van je ontwikkelomgeving. Dit is de plaats waar je componenten een andere naam kunt geven en verwijderen.
  
-\inlinefig{screenshots/MollenMeppen_design_clock1}{Locatie van de \menuitem{Clock} component in het \menuitem{Basic} palette}
  
 \begin{opgave}
     \opgVraag
@@ -127,12 +127,12 @@ Een component kun je in het \menuitem{Viewer} gedeelte van je ontwikkelomgeving 
   Beredeneer waarom de clock en de andere component hier neergezet worden. 
 \end{opgave}
 
-Nadat je de \menuitem{Clock} component hebt toegevoegd kun je de timer programmeren. Hiervoor moet je in de \menuitem{Blocks Editor} zijn. Je weet intussen hoe je die moet openen of je hebt hem nog open staan. 
-Onder de \menuitem{My Blocks} tab staat nu een \menuitem{Clock1} link omdat je de \menuitem{Clock} component hebt toegevoegd, zie figuur \ref{screenshots/MollenMeppen_BlocksEditor_Clock1}. Klik op de link en je ziet bovenaan een \block{Clock1.Timer} block.
+Nadat je de \menuitem{Clock} component hebt toegevoegd kun je de timer programmeren. Hiervoor moet je in de \menuitem{Blocks Editor} zijn. 
+Onder de \menuitem{`Screen1'} (linkerzijde) staat nu een \menuitem{Clock1} link omdat je de \menuitem{Clock} component hebt toegevoegd, zie figuur \ref{screenshots/MollenMeppen_design_clock1}. Klik op de link en je ziet bovenaan een \block{Clock1.Timer} block.
 
-\inlinefig{screenshots/MollenMeppen_BlocksEditor_Clock1}{Locatie van de \menuitem{My Blocks} | \menuitem{Clock1} link}
+%\inlinefig{screenshots/MollenMeppen_BlocksEditor_Clock1}{Locatie van de \menuitem{My Blocks} | \menuitem{Clock1} link}
  
-\reminder{\lefthand}{Hint: Kijk eens bij de \menuitem{My Blocks} | \menuitem{My Definitions} link.}
+%\reminder{\lefthand}{Hint: Kijk eens bij de \menuitem{My Blocks} | \menuitem{My Definitions} link.}
 \begin{opgave}
     \opgVraag
 	Voeg het timer blok toe en zorg dat de mol zich om de zoveel tijd uit zichzelf verplaatst.
@@ -181,7 +181,7 @@ Daarvoor moet je onder bepaalde voorwaarden de mol steeds sneller laten bewegen.
 Bij een \emph{if-statement} wordt er getest of een expressie waar of niet waar is (we noemen zo'n expressie een \emph{Booleaanse expressie}). Als de expressie waar is wordt de code die binnen het \emph{if-statement} staat wel uitgevoerd en anders wordt deze code overgeslagen.
 
 %\needspace{5\baselineskip}
-\reminder[+.2in]{\lefthand}{Hint: Als je de \menuitem{Clock} component selecteert in bijvoorbeeld de \menuitem{viewer} zie je bij \menuitem{Properties} een veld dat \emph{TimerInterval} heet. Kun je iets vergelijkbaars vinden in de \menuitem{Blocks Editor}?}
+\reminder[-1in]{\lefthand}{Hint: Als je de \menuitem{Clock} component selecteert in bijvoorbeeld de \menuitem{viewer} zie je bij \menuitem{Properties} een veld dat \emph{TimerInterval} heet. Kun je iets vergelijkbaars vinden in de \menuitem{Blocks Editor}?}
 \begin{opgave}
     \opgVraag
 	Zorg ervoor dat voor elke 50 punten die de speler heeft de mol 50 milliseconden sneller beweegt. Houd rekening met een grens voor de snelheid.
@@ -197,17 +197,18 @@ We noemen dit program control en het geeft gebruikers van onze applicatie de mog
 
 
 \section{Testen op je telefoon}
-\runOpTelefoon{} Tot nu toe heb je de app enkel getest in de emulator. Leuker is natuurlijk om de app ook op je eigen telefoon te draaien, je kunt hem dan ook thuis laten zien!
+\runOpTelefoon{} Test de app nog eens. Als je de app op je eigen telefoon probeert, kun je hem thuis en aan vrienden laten zien!
 
-Vanuit de design omgeving kun je rechtsboven kiezen voor \menuitem{Package for Phone} en vervolgens \menuitem{Show barcode}. Na verloop van tijd (afhankelijk van de drukte kan dit enkele minuten duren) krijg je een venster met daarin een zogenaamde QR-code. Deze code kun je scannen met de camera van je telefoon. Hiervoor heb je een app nodig, een voorbeeld is \emph{Qr Barcode Scanner}, je kunt deze downloaden in de \emph{Play Store}.
+%Vanuit de design omgeving kun je rechtsboven kiezen voor \menuitem{Package for Phone} en vervolgens \menuitem{Show barcode}. Na verloop van tijd (afhankelijk van de drukte kan dit enkele minuten duren) krijg je een venster met daarin een zogenaamde QR-code. Deze code kun je scannen met de camera van je telefoon. Hiervoor heb je een app nodig, een voorbeeld is \emph{Qr Barcode Scanner}, je kunt deze downloaden in de \emph{Play Store}.
 
-Na het openen van Qr Barcode Scanner kies je voor \menuitem{Scan Barcode}, je kijkt nu door je camera. Richt de camera op de barcode op het scherm. De app leest de barcode en geeft je de optie de URL die hierin verstopt is te openen in de browser. Na het openen van de browser wordt de download van een .apk bestand gestart. 
+%Na het openen van Qr Barcode Scanner kies je voor \menuitem{Scan Barcode}, je kijkt nu door je camera. Richt de camera op de barcode op het scherm. De app leest de barcode en geeft je de optie de URL die hierin verstopt is te openen in de browser. Na het openen van de browser wordt de download van een .apk bestand gestart. 
 
-Na het downloaden open je het bestand. Wat er precies gebeurt is afhankelijk van je telefoon en de versie van Android. Waarschijnlijk krijg je eerst de melding dat de installatie is geblokkeerd. Android telefoons zijn standaard ingesteld dat ze enkel applicaties vanuit de Market of Play Store kunnen installeren. Door \menuitem{Onbekende bronnen} aan te vinken in het \menuitem{Beveiliging} onderdeel van \menuitem{Instellingen} kun je dit toestaan. Nadat je dit hebt gedaan open je de .apk opnieuw. Je krijgt nu de vraag of je de applicatie wilt installeren, je kiest voor de knop \menuitem{Installeren}. Na enkele ogenblikken is de applicatie ge\"installeerd en kun je deze \menuitem{Openen}. 
+%Na het downloaden open je het bestand. Wat er precies gebeurt is afhankelijk van je telefoon en de versie van Android. Waarschijnlijk krijg je eerst de melding dat de installatie is geblokkeerd. Android telefoons zijn standaard ingesteld dat ze enkel applicaties vanuit de Market of Play Store kunnen installeren. Door \menuitem{Onbekende bronnen} aan te vinken in het \menuitem{Beveiliging} onderdeel van \menuitem{Instellingen} kun je dit toestaan. Nadat je dit hebt gedaan open je de .apk opnieuw. Je krijgt nu de vraag of je de applicatie wilt installeren, je kiest voor de knop \menuitem{Installeren}. Na enkele ogenblikken is de applicatie ge\"installeerd en kun je deze \menuitem{Openen}. 
 
 De volgende keer dat je de applicatie via een barcode wilt installeren zal de telefoon vragen of je de applicatie wilt vervangen, dit bevestig je door op \menuitem{OK} te klikken en de applicatie vervolgens op dezelfde manier te \menuitem{Installeren}.
 
 
+\pagebreak
 \section{Bonus opgaven}
 \reminder[+.2in]{\lefthand}{Tip: Kijk eens bij `Properties' van de \block{canvas} component.}
 \begin{opgave}
